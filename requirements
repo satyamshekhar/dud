@@ -1,0 +1,30 @@
+;; File management
+;;   Rename
+;; Buffer management
+;;   Ido
+;; Mode managemet
+;;   C++
+;;   Python
+;;   Bash
+;;   Javascript
+;;   Go
+;; Words
+;;   Spell correction - flyspell
+;;   thesaures
+;; Themes
+;; Handle ~
+;; Personal
+;;   
+
+
+ctrl-a - don't go to beginning of line.
+ctrl-e - similar to ctrl-a
+sprint-mode
+flyspell
+better buffer selection - ido
+compilation error
+auto-complete
+google-indentation
+
+rename.
+tip of the day.
