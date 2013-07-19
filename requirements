@@ -25,6 +25,7 @@ better buffer selection - ido
 compilation error
 auto-complete
 google-indentation
-
+previous-file, next-file (buffer)
+previous-mark, next-mark ()
 rename.
 tip of the day.
