@@ -28,7 +28,7 @@ see a list of available options.")
 
 (dolist (init-dir init-directory-list)
   (message "Loading: %s" init-dir)
-  (let (file (expand-file-name "dud-init.el" init-dir))
+  (let ((file (expand-file-name "dud-init.el" init-dir)))
     (when (file-exists-p file)
       (load file))))
 
