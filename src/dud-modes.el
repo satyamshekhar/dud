@@ -1,7 +1,16 @@
+(require 'whitespace)
+
 ;; cc mode
+(defun dud-c-mode-hook ()
+  "Customizations to c-mode"
+  (setq whitespace-style '(face trailing tabs lines-tail newline empty))
+  (setq whitespace-line-column 80)
+  (whitespace-mode t))
+
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(add-hook 'c-mode-common-hook 'dud-c-mode-hook)
 
 ;; protobuf-mode
 (require 'protobuf-mode)
