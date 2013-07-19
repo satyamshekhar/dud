@@ -3,9 +3,10 @@
 
 (require 'whitespace)
 
-;; Enable deletion of selected text.
 (delete-selection-mode t)
+(global-hl-line-mode t)
 
 ;; (add-hook 'write-file-hooks 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (provide 'dud-common)
