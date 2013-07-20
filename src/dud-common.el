@@ -4,9 +4,11 @@
 (setq-default indent-tabs-mode nil)
 
 (delete-selection-mode t)
-(whitespace-mode t)
 (setq x-select-enable-clipboard t)
 (global-auto-revert-mode -1)
+
+(global-whitespace-mode t)
+(setq whitespace-style '(face trailing tabs lines-tail newline empty))
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)

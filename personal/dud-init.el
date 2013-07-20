@@ -2,5 +2,3 @@
 ;; copying. Slowest and safest method.
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
-
-(require 'scalemacs)

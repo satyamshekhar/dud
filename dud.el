@@ -1,6 +1,22 @@
-;; Dud is emacs configuration for scaligent.
+;; Dud is a very simple emacs configuration project meant to make
+;; configuration very simple and thus the name.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
+;;
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 2
+;; of the License, or (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program; if not, write to the Free Software
+;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+;; 02110-1301, USA.
 
 (defvar dud-root-dir (file-name-directory load-file-name)
   "Directory from where this file is loaded. The same director should
@@ -33,7 +49,6 @@ see a list of available options.")
   (add-to-list 'load-path init-dir))
 
 (dolist (init-dir init-directory-list)
-  (message "Loading: %s" init-dir)
   (let ((file (expand-file-name "dud-init.el" init-dir)))
     (when (file-exists-p file)
       (load file))))
