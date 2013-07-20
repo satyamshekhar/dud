@@ -13,8 +13,8 @@ and I will help incase anything breaks.
 
 Shortcuts
 =========
-All global shortcuts are defined in <project-root>/src/dud-key-bindings.el.
-Mode level shorcuts are defined in <project-root>/modes/<mode>.el
+All global shortcuts are defined in \<project-root\>/src/dud-key-bindings.el.
+Mode level shorcuts are defined in \<project-root\>/modes/\<mode\>.el
 
     > C-+ - Increase text size
     > C-- - Decrease text size
@@ -59,9 +59,9 @@ Planned packages
 
 Planned custom functions
 ========================
-previous-buffer/next-buffer - Similar to browser history.
-rename-buffer-and-file
-delete-buffer-and-file
+1. previous-buffer/next-buffer - Similar to browser history.
+2. rename-buffer-and-file
+3. delete-buffer-and-file
 
 Installation
 ============
