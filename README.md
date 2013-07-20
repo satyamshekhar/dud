@@ -33,7 +33,7 @@ Configured packages
 
 No packages will be enforced. You can choose to install or not install
 these packages by modifying the dud-packages-list variable defined in
-<project-root>/dud.el.
+\<project-root\>/dud.el.
 
 1. dud-cpp-mode - Follows google-style cpp formatting.
 2. dud-protobuf-mode - Configures major mode for editing protbufs.
