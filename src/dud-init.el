@@ -2,4 +2,3 @@
 (require 'dud-key-bindings)
 (require 'dud-ui)
 (require 'dud-common)
-(require 'dud-modes)

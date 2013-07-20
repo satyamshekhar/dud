@@ -4,7 +4,7 @@
 (setq-default indent-tabs-mode nil)
 
 (delete-selection-mode t)
-(global-hl-line-mode t)
+(whitespace-mode t)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
@@ -13,5 +13,8 @@
 
 ;; (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(require 'dud-cpp-mode)
+(require 'dud-protobuf-mode)
 
 (provide 'dud-common)
