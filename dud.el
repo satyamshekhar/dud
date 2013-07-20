@@ -1,5 +1,6 @@
-;; Dud is a very simple emacs configuration project meant to make
-;; configuration very simple and thus the name.
+;; Dud is emacs configuration for dummy's. It's meant to expose the
+;; power of emacs without much configuration and at the same time
+;; adhereing to emacs philosophy of customization.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
 ;;
@@ -18,9 +19,28 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
+;; List of packages that dud sets up for you. Comment out any packages
+;; that you dislike/don't need. Dud will not set that package up and
+;; remove all the key-bindings that it uses.
+;; Unused right now.
+(defvar dud-packages-list '(ido              ;;
+                            flyspell         ;;
+                            flymake
+                            ack
+                            ace-jump-mode
+                            buffer-move
+                            escreen
+                            cscope
+                            cedet
+                            ecb
+                            magit
+                            auto-complete)
+  "List of packages to be enabled/setup by dud. Commenting out any package
+that you don't need will disable it from dud.")
+
 (defvar dud-root-dir (file-name-directory load-file-name)
-  "Directory from where this file is loaded. The same director should
-   house other init directories.")
+  "Directory from where this file is loaded. This file will initialize
+dud assuming the project structure is same on all machines.")
 
 (message "Initializing dud: %s." dud-root-dir)
 

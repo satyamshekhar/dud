@@ -38,7 +38,4 @@
 ;; (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(require 'dud-cpp-mode)
-(require 'dud-protobuf-mode)
-
 (provide 'dud-common)
