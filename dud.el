@@ -23,18 +23,22 @@
 ;; that you dislike/don't need. Dud will not set that package up and
 ;; remove all the key-bindings that it uses.
 ;; Unused right now.
-(defvar dud-packages-list '(ido              ;;
-                            flyspell         ;;
-                            flymake
-                            ack
-                            ace-jump-mode
-                            buffer-move
-                            escreen
-                            cscope
-                            cedet
-                            ecb
-                            magit
-                            auto-complete)
+(defvar dud-packages-list
+  '(dud-cpp-mode        ;;
+    dud-protobuf-mode   ;;
+    ido                 ;;
+    flyspell            ;;
+    flymake             ;;
+    ack                 ;;
+    ace-jump-mode       ;;
+    buffer-move         ;;
+    escreen
+    cscope
+    cedet
+    ecb
+    magit
+    auto-complete
+    yasnippet)
   "List of packages to be enabled/setup by dud. Commenting out any package
 that you don't need will disable it from dud.")
 

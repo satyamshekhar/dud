@@ -18,8 +18,12 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
-(global-set-key (kbd "C-+")   'text-scale-increase)
-(global-set-key (kbd "C--")   'text-scale-decrease)
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-)") (lambda ()
+                              (interactive)
+                              (text-scale-set 0)))
+
 (global-set-key (kbd "C-x t") 'eshell)
 (global-set-key (kbd "<f12>") 'menu-bar-mode)
 

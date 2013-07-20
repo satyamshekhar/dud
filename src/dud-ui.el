@@ -28,7 +28,7 @@
 (menu-bar-mode 1)
 
 (global-hl-line-mode t)
-(global-linum-mode -1)
+(global-linum-mode 1)
 ;; (winner-mode 1)
 
 (custom-set-variables
