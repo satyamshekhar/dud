@@ -41,8 +41,3 @@ see a list of available options.")
 ;; Saves all the UI customization to this file.
 (setq custom-file (expand-file-name "custom.el" dud-personal-dir))
 (load custom-file)
-
-;; Set package management.
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
