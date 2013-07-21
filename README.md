@@ -28,6 +28,18 @@ Mode level shorcuts are defined in \<project-root\>/modes/\<mode\>.el
     > Shift-<left arrow>  - move to window left.
     > Shift-<right arrow> - move to window right.
 
+Dependencies
+============
+1. el-get - Dud installs el-get if it is not already present.
+   It uses el-get for package management because of its simplicity
+   and power. User can install packages using el-get. Dud won't interfere there.
+   but won't provide any customizations on those packages as well. Packages
+   installed using el-get are installed in \<project_root\>/packages. el-get
+   itself is installed in \<project_root\>/packages/el-get.
+   > Note: In case el-get was already installed dud will override the install
+     path of packages to the paths mentioned above. Refer to src/dud-packages.el
+     for more details.
+
 Configured packages
 ===================
 
