@@ -20,7 +20,7 @@
 ;; 02110-1301, USA.
 ;;
 ;; Sets up protobuf mode for *.proto files.
-;; Dependancies: Requires google-c-style in your load-path. If you are
+;; Dependencies: Requires proto-buf in your load-path. If you are
 ;; using this as a part of dud then it will take care of it. Otherwise
 ;; you can get it from here:
 ;;   http://code.google.com/p/protobuf/source/browse/trunk/editors/protobuf-mode.el?r=227

@@ -20,7 +20,7 @@
 ;; 02110-1301, USA.
 
 ;; Customizations to default c mode.
-;; Dependancies: Requires google-c-style in your load-path. If you are
+;; Dependencies: Requires google-c-style in your load-path. If you are
 ;; using this as a part of dud then it will take care of it. Otherwise
 ;; you can get it from here:
 ;;   http://google-styleguide.googlecode.com/svn/trunk/google-c-style.el
