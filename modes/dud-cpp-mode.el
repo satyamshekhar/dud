@@ -1,5 +1,6 @@
-;; Dud is a very simple emacs configuration project meant to make
-;; configuration very simple and thus the name.
+;; Dud is emacs configuration for dummy's. It's meant to expose the
+;; power of emacs without much configuration and at the same time
+;; adhereing to emacs philosophy of customization.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
 ;;
@@ -17,6 +18,15 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
+
+;; Customizations to default c mode.
+;; Dependancies: Requires google-c-style in your load-path. If you are
+;; using this as a part of dud then it will take care of it. Otherwise
+;; you can get it from here:
+;;   http://google-styleguide.googlecode.com/svn/trunk/google-c-style.el
+
+;; Besides setting up google-c-style mode it provides convenience functions
+;; that you can use to rotate betweeh header, implementation and cpp files.
 
 (defun dud-c-mode-hook ()
   "Customizations to c-mode"

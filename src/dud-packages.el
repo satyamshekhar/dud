@@ -50,7 +50,7 @@
 (require 'el-get)
 
 (defvar dud-install-packages ())
-(el-get-cleanup dud-install-packages)
+;; (el-get-cleanup dud-install-packages)
 (el-get 'sync dud-install-packages)
 
 (provide 'dud-packages)
