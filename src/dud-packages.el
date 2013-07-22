@@ -26,31 +26,31 @@
 (defvar dud-package-dir (expand-file-name "packages" dud-root-dir))
 (setq package-user-dir dud-package-dir)
 
-;; Path where packages are installed.
-(setq el-get-dir dud-package-dir)
-;; Path for the el-get package.
-(setq el-get-install-dir (expand-file-name "el-get" el-get-dir))
-;; This directory stores a local list of ELPA recipes.
-(setq el-get-recipe-path-elpa
-      (expand-file-name "recipes/elpa" el-get-install-dir))
-(setq el-get-recipe-path-emacswiki
-      (expand-file-name "recipes/emacswiki" el-get-install-dir))
+;; ;; Path where packages are installed.
+;; (setq el-get-dir dud-package-dir)
+;; ;; Path for the el-get package.
+;; (setq el-get-install-dir (expand-file-name "el-get" el-get-dir))
+;; ;; This directory stores a local list of ELPA recipes.
+;; (setq el-get-recipe-path-elpa
+;;       (expand-file-name "recipes/elpa" el-get-install-dir))
+;; (setq el-get-recipe-path-emacswiki
+;;       (expand-file-name "recipes/emacswiki" el-get-install-dir))
 
-(add-to-list 'load-path el-get-dir)
+;; (add-to-list 'load-path el-get-dir)
 
-(unless (require 'el-get nil t)
-  (message "Installing el-get")
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
+;; ;; (unless (require 'el-get nil t)
+;; ;;   (message "Installing el-get")
+;; ;;   (with-current-buffer
+;; ;;       (url-retrieve-synchronously
+;; ;;        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+;; ;;     (goto-char (point-max))
+;; ;;     (eval-print-last-sexp)))
 
-;; Now el-get must be installed.
-(require 'el-get)
+;; ;; Now el-get must be installed.
+;; (require 'el-get)
 
-(defvar dud-install-packages ())
-;; (el-get-cleanup dud-install-packages)
-(el-get 'sync dud-install-packages)
+;; (defvar dud-install-packages ())
+;; ;; (el-get-cleanup dud-install-packages)
+;; (el-get 'sync dud-install-packages)
 
 (provide 'dud-packages)
