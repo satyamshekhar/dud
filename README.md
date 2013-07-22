@@ -41,6 +41,7 @@ these packages by modifying the dud-packages-list variable defined in
 2. dud-protobuf-mode - Configures major mode for editing protbufs.
 3. ido-flx           - Fast buffer switching.
 4. ido-ubiquitous    - Enable ido everywhere.
+5. perspective       - workspace switcher.
 
 Planned packages
 ================

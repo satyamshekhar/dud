@@ -34,4 +34,4 @@
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
-(provide 'dud-ui)
+(provide 'dud-appearance)

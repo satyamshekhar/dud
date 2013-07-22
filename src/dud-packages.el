@@ -29,6 +29,10 @@
 ;; Initialize package to put installed packages into load-path.
 (package-initialize)
 
+(require 'perspective)
+;; Toggle the perspective mode
+(persp-mode)
+
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
