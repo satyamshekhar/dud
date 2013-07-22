@@ -30,18 +30,6 @@ Mode level shorcuts are defined in \<project-root\>/modes/\<mode\>.el
 
     > F5 - In cpp mode, rotates among .h .cpp and _test.cpp files.
 
-Dependencies
-============
-1. el-get - Dud installs el-get if it is not already present.
-   It uses el-get for package management because of its simplicity
-   and power. User can install packages using el-get. Dud won't interfere there.
-   but won't provide any customizations on those packages as well. Packages
-   installed using el-get are installed in \<project_root\>/packages. el-get
-   itself is installed in \<project_root\>/packages/el-get.
-   > Note: In case el-get was already installed dud will override the install
-     path of packages to the paths mentioned above. Refer to src/dud-packages.el
-     for more details.
-
 Configured packages
 ===================
 
@@ -51,11 +39,11 @@ these packages by modifying the dud-packages-list variable defined in
 
 1. dud-cpp-mode - Follows google-style cpp formatting.
 2. dud-protobuf-mode - Configures major mode for editing protbufs.
+3. ido-flx           - Fast buffer switching.
 
 Planned packages
 ================
-3. dud-js2-mode   - Enables js2-mode by mooz. Enable other featurs
-4. ido            - Fast buffer switching.
+4. dud-js2-mode   - Enables js2-mode by mooz. Enable other featurs
 5. flyspell       - spell checker.
 6. thesaures      - .
 7. ack            - better grep.

@@ -21,12 +21,18 @@
 
 (require 'whitespace)
 
+;; Increase GC memory limit.
+(setq gc-cons-threshold 20000000)
+
 ;; Use to C-q C-i insert horizontal tabs.
 (setq-default indent-tabs-mode nil)
 
 (delete-selection-mode t)
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (setq x-select-enable-clipboard t)
 (global-auto-revert-mode -1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (global-whitespace-mode t)
 (setq whitespace-style '(face trailing tabs lines-tail newline empty))
@@ -35,8 +41,6 @@
 (setq uniquify-buffer-name-style 'post-forward)
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (require 'dud-cpp-mode)
 (require 'dud-protobuf-mode)

@@ -26,31 +26,13 @@
 (defvar dud-package-dir (expand-file-name "packages" dud-root-dir))
 (setq package-user-dir dud-package-dir)
 
-;; ;; Path where packages are installed.
-;; (setq el-get-dir dud-package-dir)
-;; ;; Path for the el-get package.
-;; (setq el-get-install-dir (expand-file-name "el-get" el-get-dir))
-;; ;; This directory stores a local list of ELPA recipes.
-;; (setq el-get-recipe-path-elpa
-;;       (expand-file-name "recipes/elpa" el-get-install-dir))
-;; (setq el-get-recipe-path-emacswiki
-;;       (expand-file-name "recipes/emacswiki" el-get-install-dir))
+;; Initialize package to put installed packages into load-path.
+(package-initialize)
 
-;; (add-to-list 'load-path el-get-dir)
-
-;; ;; (unless (require 'el-get nil t)
-;; ;;   (message "Installing el-get")
-;; ;;   (with-current-buffer
-;; ;;       (url-retrieve-synchronously
-;; ;;        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-;; ;;     (goto-char (point-max))
-;; ;;     (eval-print-last-sexp)))
-
-;; ;; Now el-get must be installed.
-;; (require 'el-get)
-
-;; (defvar dud-install-packages ())
-;; ;; (el-get-cleanup dud-install-packages)
-;; (el-get 'sync dud-install-packages)
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
 
 (provide 'dud-packages)
