@@ -63,8 +63,7 @@
 (defun dud-c-rotate ()
   "Rotates buffer among file.hpp <-> file.cpp <-> file_test.cpp"
   (interactive)
-  (let* ((buf-name (buffer-name))
-        (file-path (buffer-file-name))
+  (let* ((file-path (buffer-file-name))
         (rotated-files (dud-c-rotated-files file-path)))
     (if rotated-files
         (progn
