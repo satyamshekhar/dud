@@ -28,6 +28,8 @@ Mode level shorcuts are defined in \<project-root\>/modes/\<mode\>.el
     > Shift-<left arrow>  - move to window left.
     > Shift-<right arrow> - move to window right.
 
+    > F5 - In cpp mode, rotates among .h .cpp and _test.cpp files.
+
 Dependencies
 ============
 1. el-get - Dud installs el-get if it is not already present.
