@@ -34,6 +34,9 @@
 (ido-everywhere 1)
 (flx-ido-mode 1)
 (setq ido-use-faces nil)
+(setq ido-enable-flex-matching t)
+(setq ido-enable-tramp-completion nil)
+(setq ido-create-new-buffer 'always)
 (ido-ubiquitous-mode t)
 
 (require 'smex)
