@@ -32,24 +32,46 @@
   "Customizations to c-mode"
   (setq whitespace-style '(face trailing tabs lines-tail newline empty))
   (setq whitespace-line-column 80)
-  (whitespace-mode t))
+  (whitespace-mode t)
+  (local-set-key (kbd "<f5>") 'dud-c-rotate))
 
-(defvar dud-c-rotation-map '((".hpp" . (".cpp"))
-                             (".cpp" . "_test.cpp")
-                             ("_test.cpp" . (".hpp"))))
+;; file-name suffix is compared with first elements from the list
+;; in the order specified here.
+(defvar dud-c-rotation-map '((".hpp" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
+                             (".h" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
+                             ("_test.cpp" . (".hpp" ".h" ".cc" ".cpp"))
+                             (".cpp" . ("_test.cpp" ".hpp" ".h"))
+                             (".cc" . ("_test.cc" ".hpp" ".h"))))
 
-(defun dud-c-can-rotate ()
-  "Returns true if the file can be rotated, false otherwise."
-  ())
+(defun ends-with (string suffix)
+  "Returns t if @string ends with @suffix, nil otherwise."
+  (let ((start (- (length string) (length suffix))))
+    (and (>= start 0)
+         (string= suffix (substring string (- (length suffix)))))))
+
+(defun dud-c-rotated-files (file-name)
+  "Returns list of file names if the file can be rotated, nil otherwise."
+  (let* ((ext-map (find-if (lambda (rotation-map)
+                             (ends-with file-name (car rotation-map)))
+                           dud-c-rotation-map))
+         (old-suffix (car ext-map))
+         (new-suffix-list (cdr ext-map)))
+    (mapcar (lambda (new-suffix)
+              (concat (substring file-name 0 (- (length old-suffix)))
+                      new-suffix)) new-suffix-list)))
 
 (defun dud-c-rotate ()
   "Rotates buffer among file.hpp <-> file.cpp <-> file_test.cpp"
   (interactive)
-  (if (dud-c-can-rotate (buffer-file-name))
-      ()
-    (message "")))
-
-;; local-set-key
+  (let* ((buf-name (buffer-name))
+        (file-path (buffer-file-name))
+        (rotated-files (dud-c-rotated-files file-path)))
+    (if rotated-files
+        (progn
+          (loop for file in rotated-files
+                when (file-exists-p file) return (find-file file))
+          (message "No file found for any rotation."))
+      (message "No rotation defined for current file"))))
 
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
