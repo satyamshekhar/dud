@@ -1,5 +1,6 @@
-;; Dud is a very simple emacs configuration project meant to make
-;; configuration very simple and thus the name.
+;; Dud is emacs configuration for dummy's. It's meant to expose the
+;; power of emacs without much configuration and at the same time
+;; adhereing to emacs philosophy of customization.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
 ;;
