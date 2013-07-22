@@ -40,6 +40,7 @@ these packages by modifying the dud-packages-list variable defined in
 1. dud-cpp-mode - Follows google-style cpp formatting.
 2. dud-protobuf-mode - Configures major mode for editing protbufs.
 3. ido-flx           - Fast buffer switching.
+4. ido-ubiquitous    - Enable ido everywhere.
 
 Planned packages
 ================
