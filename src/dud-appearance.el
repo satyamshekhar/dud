@@ -32,6 +32,8 @@
 ;; (winner-mode 1)
 
 (custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+ '(initial-frame-alist '((fullscreen . maximized))))
+
+(split-window-right)
 
 (provide 'dud-appearance)

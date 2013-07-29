@@ -51,34 +51,7 @@
 
 (require 'el-get)
 (setq el-get-notify-type 'message)
-(setq el-get-sources
-      '(ace-jump-mode
-        ack-and-a-half    ; better grep
-        auto-complete     ; complete as you type with overlays
-        eclim
-        el-get
-        emacs-jabber
-        escreen           ; screen for emacs, C-\ C-h
-        evil
-        expand-region
-        fastnav
-        flycheck
-        flx
-        g-client
-        goto-last-change  ; jump to last change.
-        helm
-        ido-ubiquitous
-        ido-vertical-mode
-        js2-mode
-        key-chord
-        kill-ring-rotate
-        nginx-mode
-        magit             ; git support.
-        smex              ; Better M-x
-        space-chord
-        undo-tree
-        yasnippet))       ; snippets
 
-(el-get 'sync el-get-sources)
+(el-get 'sync dud-install-packages)
 
 (provide 'dud-package-manager)

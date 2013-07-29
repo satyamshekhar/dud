@@ -23,8 +23,16 @@
 ;; the configuration grows or gets complex we will move it out to a
 ;; separate config file.
 
+(require 'fastnav)
+
+(require 'smex)
+(smex-initialize)
+
 (require 'perspective)
 (persp-mode)
+
+;; (require 'undo-tree)
+(undo-tree-mode)
 
 (require 'flx-ido)
 (ido-mode 1)
@@ -36,15 +44,10 @@
 (setq ido-create-new-buffer 'always)
 (ido-ubiquitous-mode t)
 
-(require 'smex)
-(smex-initialize)
-
 (autoload 'ace-jump-mode "ace-jump-mode"
   "Emacs quick move minor mode" t)
 (autoload 'ace-jump-mode-pop-mark "ace-jump-mode"
   "Ace jump back:-)" t)
 (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
-
-(require 'fastnav)
 
 (provide 'dud-packages)

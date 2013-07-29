@@ -51,6 +51,7 @@
 ;; (key-chord-define-global ",," 'indent-for-comment)
 ;; (key-chord-define c++-mode-map ";;" "\C-e;")
 ;; (space-chord-define c-mode-map "c" 'compile)
+;; (global-set-key (kbd "C-?") 'undo-tree-visualize)
 
 (global-set-key "\M-z" 'fastnav-zap-up-to-char-forward)
 (global-set-key "\M-Z" 'fastnav-zap-up-to-char-backward)

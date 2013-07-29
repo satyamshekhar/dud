@@ -23,22 +23,33 @@
 ;; that you dislike/don't need. Dud will not set that package up and
 ;; remove all the key-bindings that it uses.
 ;; Unused right now.
-(defvar dud-packages-list
-  '(dud-cpp-mode        ;;
-    dud-protobuf-mode   ;;
-    ido                 ;;
-    flyspell            ;;
-    flymake             ;;
-    ack                 ;;
-    ace-jump-mode       ;;
-    buffer-move         ;;
-    escreen
-    cscope
-    cedet
-    ecb
-    magit
-    auto-complete
-    yasnippet)
+(defvar dud-install-packages
+  '(ace-jump-mode
+    ack-and-a-half    ;; better grep
+    auto-complete     ;; complete as you type with overlays
+    color-theme       ;; a lot of supported themes.
+    eclim             ;; eclipse features into emacs.
+    el-get            ;; package manager
+    emacs-jabber      ;; jabber support for emacs.
+    escreen           ;; screen for emacs, C-\ C-h
+    evil              ;; vim mode
+    expand-region     ;; expand-region by region
+    fastnav           ;; faster navigation
+    flycheck          ;; on the fly check for compilation errors.
+    flx               ;; better suggestions for ido
+    g-client          ;; google client.
+    goto-last-change  ;; jump to last change.
+    helm              ;; navigator.
+    ido-ubiquitous    ;; use ido everywhere.
+    js2-mode          ;; better js mode.
+    key-chord         ;; More option for key-bindings.
+    kill-ring-rotate  ;; browse and rotate kill rings.
+    nginx-mode        ;; Mode to edit nginx config.
+    magit             ;; git support.
+    smex              ;; Better M-x
+    space-chord       ;; Enable space binding for key-chord.
+    undo-tree         ;; undo tree.
+    yasnippet)        ;; snippets
   "List of packages to be enabled/setup by dud. Commenting out any package
 that you don't need will disable it from dud.")
 
@@ -62,11 +73,12 @@ see a list of available options.")
 
 ;; List of top level directories for dud.  These folders are added
 ;; to the load path and init.el from each of these directories is loaded.
-(defvar init-directory-list (list dud-src-dir
+;; Order here is important.
+(defvar init-directory-list (list dud-lib-dir
+                                  dud-modes-dir
                                   dud-themes-dir
-                                  dud-personal-dir
-                                  dud-lib-dir
-                                  dud-modes-dir)
+                                  dud-src-dir
+                                  dud-personal-dir)
   "List of directories used during initialization.")
 
 (dolist (init-dir init-directory-list)
