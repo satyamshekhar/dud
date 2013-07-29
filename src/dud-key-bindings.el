@@ -18,6 +18,10 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
+;; Use key chord mode.
+(require 'key-chord)
+(key-chord-mode 1)
+
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-)") (lambda ()
@@ -41,8 +45,12 @@
 (global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
-(global-set-key (kbd "C-x C-z") 'magit-status)
-(global-set-key (kbd "C-x C-/") 'goto-last-change)
+;; (global-set-key (kbd "C-x C-z") 'magit-status)
+;; (global-set-key (kbd "C-x C-/") 'goto-last-change)
+;; (space-chord-define-global "f" 'find-file)
+;; (key-chord-define-global ",," 'indent-for-comment)
+;; (key-chord-define c++-mode-map ";;" "\C-e;")
+;; (space-chord-define c-mode-map "c" 'compile)
 
 (global-set-key "\M-z" 'fastnav-zap-up-to-char-forward)
 (global-set-key "\M-Z" 'fastnav-zap-up-to-char-backward)

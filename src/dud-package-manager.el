@@ -52,16 +52,16 @@
 (require 'el-get)
 (setq el-get-notify-type 'message)
 (setq el-get-sources
-      '(el-get
-        ace-jump-mode
+      '(ace-jump-mode
         ack-and-a-half    ; better grep
         auto-complete     ; complete as you type with overlays
         eclim
+        el-get
         emacs-jabber
         escreen           ; screen for emacs, C-\ C-h
         evil
         expand-region
-	fastnav
+        fastnav
         flycheck
         flx
         g-client
@@ -75,6 +75,7 @@
         nginx-mode
         magit             ; git support.
         smex              ; Better M-x
+        space-chord
         undo-tree
         yasnippet))       ; snippets
 
