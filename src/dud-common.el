@@ -37,12 +37,4 @@
 (global-whitespace-mode t)
 (setq whitespace-style '(face trailing tabs lines-tail newline empty))
 
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward)
-(setq uniquify-after-kill-buffer-p t)
-(setq uniquify-ignore-buffers-re "^\\*")
-
-(require 'dud-cpp-mode)
-(require 'dud-protobuf-mode)
-
 (provide 'dud-common)

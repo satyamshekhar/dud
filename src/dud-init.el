@@ -22,6 +22,6 @@
 (require 'dud-package-manager)
 (require 'dud-packages)
 (require 'dud-interactive)
-(require 'dud-key-bindings)
 (require 'dud-appearance)
 (require 'dud-common)
+(require 'dud-key-bindings)

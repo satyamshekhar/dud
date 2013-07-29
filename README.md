@@ -44,8 +44,9 @@ Dependencies
 
 2. autoconf (build-essentials) [sudo apt-get install autoconf]
 3. texlive [sudo apt-get install texlive]
-
-
+4. ack-grep [sudo apt-get install ack-grep &&
+             sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep]
+5. aspell [sudo apt-get install aspell]
 Configured packages
 ===================
 
@@ -58,10 +59,12 @@ these packages by modifying the dud-packages-list variable defined in
 3. ido-flx           - Fast buffer switching.
 4. ido-ubiquitous    - Enable ido everywhere.
 5. perspective       - workspace switcher.
+6. ace-jump-mode
+7. ack-and-a-half
+8. dud-js-mode   - Enables js2-mode by mooz. Enable other featurs
 
 Planned packages
 ================
-4. dud-js2-mode   - Enables js2-mode by mooz. Enable other featurs
 5. flyspell       - spell checker.
 6. thesaures      - .
 7. ack            - better grep.

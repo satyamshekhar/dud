@@ -27,7 +27,7 @@
   '(ace-jump-mode
     ack-and-a-half    ;; better grep
     auto-complete     ;; complete as you type with overlays
-    color-theme       ;; a lot of supported themes.
+    color-theme       ;; required for supported themes.
     eclim             ;; eclipse features into emacs.
     el-get            ;; package manager
     emacs-jabber      ;; jabber support for emacs.

@@ -70,4 +70,10 @@
 (global-set-key "\M-p" 'fastnav-sprint-forward)
 (global-set-key "\M-P" 'fastnav-sprint-backward)
 
+(global-set-key (kbd "<f8>") 'flyspell-word)
+(global-set-key (kbd "C-S-<f8>") 'flyspell-mode)
+(global-set-key (kbd "M-S-<f8>") 'flyspell-buffer)
+(global-set-key (kbd "C-<f8>") 'flyspell-check-next-highlighted-word)
+(global-set-key (kbd "S-<f8>") 'flyspell-check-previous-highlighted-word)
+
 (provide 'dud-key-bindings)

@@ -1,6 +1,6 @@
 ;; Dud is emacs configuration for dummy's. It's meant to expose the
 ;; power of emacs without much configuration and at the same time
-;; adhereing to emacs philosophy of customization.
+;; adhering to emacs philosophy of customization.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
 ;;
@@ -49,5 +49,28 @@
 (autoload 'ace-jump-mode-pop-mark "ace-jump-mode"
   "Ace jump back:-)" t)
 (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+
+(require 'ack-and-a-half)
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+(setq uniquify-after-kill-buffer-p t)
+(setq uniquify-ignore-buffers-re "^\\*")
+
+(require 'flyspell)
+(setq flyspell-issue-message-flag nil)
+(setq ispell-list-command "--list")
+(defun flyspell-check-next-highlighted-word ()
+  "Custom function to spell check next highlighted word"
+  (interactive)
+  (flyspell-goto-next-error)
+  (ispell-word))
+
+(require 'dud-cpp-mode)
+(require 'dud-protobuf-mode)
 
 (provide 'dud-packages)
