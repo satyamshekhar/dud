@@ -19,18 +19,11 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-(defvar dud-package-dir (expand-file-name "packages" dud-root-dir))
-(setq package-user-dir dud-package-dir)
-
-;; Initialize package to put installed packages into load-path.
-(package-initialize)
+;; Packages with minor configurations live in this file. As and when
+;; the configuration grows or gets complex we will move it out to a
+;; separate config file.
 
 (require 'perspective)
-;; Toggle the perspective mode
 (persp-mode)
 
 (require 'flx-ido)
@@ -45,8 +38,19 @@
 
 (require 'smex)
 (smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+(autoload
+   'ace-jump-mode
+   "ace-jump-mode"
+   "Emacs quick move minor mode"
+   t)
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+
+(require 'fastnav)
 
 (provide 'dud-packages)

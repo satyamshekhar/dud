@@ -24,14 +24,41 @@
                               (interactive)
                               (text-scale-set 0)))
 
-(global-set-key (kbd "C-x t") 'eshell)
-(global-set-key (kbd "<f12>") 'menu-bar-mode)
-
+(global-set-key [f12] 'menu-bar-mode)
 (global-set-key [f11] 'dud-toggle-fullscreen)
+
+(global-set-key (kbd "C-x t") 'eshell)
 
 (global-set-key [S-up]    'windmove-up)
 (global-set-key [S-down]  'windmove-down)
 (global-set-key [S-left]  'windmove-left)
 (global-set-key [S-right] 'windmove-right)
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+(global-set-key (kbd "C-x C-z") 'magit-status)
+(global-set-key (kbd "C-x C-/") 'goto-last-change)
+
+(global-set-key "\M-z" 'fastnav-zap-up-to-char-forward)
+(global-set-key "\M-Z" 'fastnav-zap-up-to-char-backward)
+(global-set-key "\M-s" 'fastnav-jump-to-char-forward)
+(global-set-key "\M-S" 'fastnav-jump-to-char-backward)
+(global-set-key "\M-r" 'fastnav-replace-char-forward)
+(global-set-key "\M-R" 'fastnav-replace-char-backward)
+(global-set-key "\M-i" 'fastnav-insert-at-char-forward)
+(global-set-key "\M-I" 'fastnav-insert-at-char-backward)
+(global-set-key "\M-j" 'fastnav-execute-at-char-forward)
+(global-set-key "\M-J" 'fastnav-execute-at-char-backward)
+(global-set-key "\M-k" 'fastnav-delete-char-forward)
+(global-set-key "\M-K" 'fastnav-delete-char-backward)
+(global-set-key "\M-m" 'fastnav-mark-to-char-forward)
+(global-set-key "\M-M" 'fastnav-mark-to-char-backward)
+(global-set-key "\M-p" 'fastnav-sprint-forward)
+(global-set-key "\M-P" 'fastnav-sprint-backward)
 
 (provide 'dud-key-bindings)
