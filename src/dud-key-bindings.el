@@ -1,4 +1,4 @@
-;; Dud is a very simple emacs configuration project meant to make
+;; Dud is a very simple Emacs configuration project meant to make
 ;; configuration very simple and thus the name.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
@@ -70,10 +70,10 @@
 (global-set-key "\M-p" 'fastnav-sprint-forward)
 (global-set-key "\M-P" 'fastnav-sprint-backward)
 
-(global-set-key (kbd "<f8>") 'flyspell-word)
-(global-set-key (kbd "C-S-<f8>") 'flyspell-mode)
-(global-set-key (kbd "M-S-<f8>") 'flyspell-buffer)
-(global-set-key (kbd "C-<f8>") 'flyspell-check-next-highlighted-word)
+(global-set-key (kbd "<f8>") 'flyspell-check-next-highlighted-word)
 (global-set-key (kbd "S-<f8>") 'flyspell-check-previous-highlighted-word)
+(global-set-key (kbd "C-<f8>") 'flyspell-word)
+(global-set-key (kbd "M-S-<f8>") 'flyspell-mode)
+(global-set-key (kbd "C-S-<f8>") 'flyspell-buffer)
 
 (provide 'dud-key-bindings)
