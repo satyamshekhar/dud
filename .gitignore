@@ -4,4 +4,5 @@ auto-save-list
 init.el
 requirements
 elpa
-packages
+packages/
+backups/
