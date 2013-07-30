@@ -72,5 +72,6 @@
 
 (require 'dud-cpp-mode)
 (require 'dud-protobuf-mode)
+(require 'dud-js-mode)
 
 (provide 'dud-packages)
