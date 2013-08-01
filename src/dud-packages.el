@@ -70,6 +70,8 @@
   (flyspell-goto-next-error)
   (ispell-word))
 
+(require 'json-pretty-print)
+(require 'thrift-mode)
 (require 'dud-cpp-mode)
 (require 'dud-protobuf-mode)
 (require 'dud-js-mode)
