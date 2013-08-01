@@ -19,7 +19,14 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
-(require 'whitespace)
+(setq debug-on-error t)
+;; Already enabled by default now. Keeping it here for consistency.
+(setq transient-mark-mode t)
+(global-font-lock-mode t)
+(put 'overwrite-mode 'disabled t)
+(setq x-select-enable-clipboard t)
+(setq-default indent-tabs-mode nil)
+(setq frame-title-format "%b - emacs")
 
 ;; Increase GC memory limit.
 (setq gc-cons-threshold 20000000)
@@ -30,10 +37,10 @@
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq x-select-enable-clipboard t)
 (global-auto-revert-mode -1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'whitespace)
 (global-whitespace-mode t)
 (setq whitespace-style '(face trailing tabs lines-tail newline empty))
 
@@ -41,6 +48,7 @@
   (concat temporary-file-directory user-login-name "/"))
 (make-directory user-temporary-file-directory t)
 (setq backup-by-copying t)
+(setq backup-by-copying-when-linked t)
 (setq backup-directory-alist
       `(("." . ,user-temporary-file-directory)
         (,tramp-file-name-regexp nil)))

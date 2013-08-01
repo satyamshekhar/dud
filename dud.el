@@ -54,6 +54,10 @@
   "List of packages to be enabled/setup by dud. Commenting out any package
 that you don't need will disable it from dud.")
 
+;; Nagios mode.
+;; Nginx mode for nginx.conf
+;;
+
 (defvar dud-root-dir (file-name-directory load-file-name)
   "Directory from where this file is loaded. This file will initialize
 dud assuming the project structure is same on all machines.")
