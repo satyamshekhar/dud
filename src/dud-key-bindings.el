@@ -18,6 +18,10 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
+(when window-system
+   (global-unset-key (kbd "C-z")))
+(global-unset-key (kbd "C-x C-c"))
+
 ;; Use key chord mode.
 (require 'key-chord)
 (key-chord-mode 1)
@@ -27,11 +31,24 @@
 (global-set-key (kbd "C-)") (lambda ()
                               (interactive)
                               (text-scale-set 0)))
+(global-set-key (kbd "C-;") 'dud-current-line-to-top)
 
-(global-set-key [f12] 'menu-bar-mode)
+(global-set-key [f9] 'dud-shell-command-bg)
 (global-set-key [f11] 'dud-toggle-fullscreen)
+(global-set-key [f12] 'menu-bar-mode)
 
 (global-set-key (kbd "C-x t") 'eshell)
+
+;; M-left/right - prev buffer, next buffer
+;; M-up/down - move line up/down
+;; ctrl-y - ctrl-y - should revolve through kill ring, ctrl-s-y kill ring
+;; ctrl-z - undo, ctrl-shift-z - redo, meta-z - undo tree
+;; meta-j - ace jump to char, meta-z - ace zap(cut) to char, meta-p copy to char
+;; [f5] - reload file ctrl-x ctrl-v
+;; [cx cc] - compile
+;; [cc cp] - prev error, [cc cn] - nex error
+;; diff two files in open buffer like vim diff.
+;; zoo keeper traversal from emacs.
 
 (global-set-key [S-up]    'windmove-up)
 (global-set-key [S-down]  'windmove-down)

@@ -35,4 +35,15 @@
   (interactive)
   ())
 
+(defun dud-current-line-to-top ()
+    "Move the line point is on to top of window."
+    (interactive)
+    (recenter 0))
+
+(defun dud-shell-command-bg ()
+    "Start a shell command in backgroud."
+    (interactive)
+    (let ((command (read-string "Command: ")))
+      (shell-command (concat command " &") (concat "*" command "*"))))
+
 (provide 'dud-interactive)
