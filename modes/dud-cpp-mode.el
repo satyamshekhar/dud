@@ -33,6 +33,7 @@
   (setq whitespace-style '(face trailing tabs lines-tail newline empty))
   (setq whitespace-line-column 80)
   (whitespace-mode t)
+  (subword-mode)
   (local-set-key (kbd "<f5>") 'dud-c-rotate))
 
 ;; file-name suffix is compared with first elements from the list
