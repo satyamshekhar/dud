@@ -34,6 +34,9 @@
 ;; (require 'undo-tree)
 (undo-tree-mode)
 
+(require 'tabbar)
+(tabbar-mode)
+
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)

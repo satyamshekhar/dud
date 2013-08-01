@@ -48,6 +48,7 @@
     magit             ;; git support.
     smex              ;; Better M-x
     space-chord       ;; Enable space binding for key-chord.
+    tabbar            ;; a tab bar at the top.
     undo-tree         ;; undo tree.
     yasnippet)        ;; snippets
   "List of packages to be enabled/setup by dud. Commenting out any package
