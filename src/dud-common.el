@@ -37,6 +37,9 @@
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Disable auto scroll due to jerky behavior with small font.
+(setq auto-window-vscroll nil)
+
 (global-auto-revert-mode -1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 

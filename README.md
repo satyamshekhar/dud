@@ -42,11 +42,14 @@ Dependencies
      path of packages to the paths mentioned above. Refer to src/dud-packages.el
      for more details.
 
-2. autoconf (build-essentials) [sudo apt-get install autoconf]
-3. texlive [sudo apt-get install texlive]
-4. ack-grep [sudo apt-get install ack-grep &&
-             sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep]
-5. aspell [sudo apt-get install aspell]
+2. texinfo [ sudo apt-get install texinfo ]
+3. autoconf (build-essentials) [ sudo apt-get install autoconf ]
+4. texlive [ sudo apt-get install texlive ]
+5. ack-grep [ sudo apt-get install ack-grep &&
+             sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep ]
+6. aspell [ sudo apt-get install aspell ]
+7. git and subversion [ sudo apt-get install subversion git ]
+
 Configured packages
 ===================
 
@@ -93,8 +96,9 @@ Installation
 
     > mkdir ~/.emacs.d
 
-2. Clone the repository.
-
+2. Clone the repository in .emacs.d folder.
+ 
+    > cd .emacs.d
     > git clone git://github.com/satyamshekhar/dud.git ~/.emacs.d/dud
 
 3. Add the following line to your .emacs file or (init.el in .emacs.d)
