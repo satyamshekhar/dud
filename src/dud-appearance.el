@@ -34,6 +34,12 @@
 (custom-set-variables
  '(initial-frame-alist '((fullscreen . maximized))))
 
+;; (set-default-font "Source Code Pro")
+;; (set-face-attribute 'default nil :height 110)
+
+(set-default-font "Ubuntu Mono 13")
+(set-face-attribute 'default nil :height 130)
+
 (split-window-right)
 
 (provide 'dud-appearance)
