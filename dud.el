@@ -24,7 +24,7 @@
 ;; remove all the key-bindings that it uses.
 ;; Unused right now.
 (defvar dud-install-packages
-  '(ace-jump-mode
+  '(ace-jump-mode     ;; Try with C-c SPC
     ack-and-a-half    ;; better grep
     auto-complete     ;; complete as you type with overlays
     color-theme       ;; required for supported themes.
@@ -34,11 +34,10 @@
     escreen           ;; screen for emacs, C-\ C-h
     evil              ;; vim mode
     expand-region     ;; expand-region by region
-    fastnav           ;; faster navigation
     flycheck          ;; on the fly check for compilation errors.
     flx               ;; better suggestions for ido
     g-client          ;; google client.
-    goto-last-change  ;; jump to last change.
+    ;; goto-last-change  ;; jump to last change.
     helm              ;; navigator.
     ido-ubiquitous    ;; use ido everywhere.
     js2-mode          ;; better js mode.
@@ -48,8 +47,8 @@
     magit             ;; git support.
     smex              ;; Better M-x
     space-chord       ;; Enable space binding for key-chord.
-    tabbar            ;; a tab bar at the top.
-    undo-tree         ;; undo tree.
+    ;; tabbar            ;; a tab bar at the top.
+    ;; undo-tree      ;; undo tree - disables re-doing with undo.
     yasnippet)        ;; snippets
   "List of packages to be enabled/setup by dud. Commenting out any package
 that you don't need will disable it from dud.")

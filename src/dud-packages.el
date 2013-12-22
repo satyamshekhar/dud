@@ -23,19 +23,15 @@
 ;; the configuration grows or gets complex we will move it out to a
 ;; separate config file.
 
-(require 'fastnav)
-
 (require 'smex)
 (smex-initialize)
 
 (require 'perspective)
 (persp-mode)
 
-;; (require 'undo-tree)
-(undo-tree-mode)
-
-(require 'tabbar)
-(tabbar-mode)
+; (require 'undo-tree)
+(undo-tree-mode -1)
+(global-undo-tree-mode -1)
 
 (require 'flx-ido)
 (ido-mode 1)
@@ -72,6 +68,8 @@
   (interactive)
   (flyspell-goto-next-error)
   (ispell-word))
+
+(require 'buffer-stack-suppl)
 
 (require 'json-pretty-print)
 (require 'thrift-mode)

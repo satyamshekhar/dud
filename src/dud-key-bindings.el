@@ -38,11 +38,9 @@
 (global-set-key [f12] 'menu-bar-mode)
 
 (global-set-key (kbd "C-x t") 'eshell)
+(global-set-key (kbd "C-S-J") 'ace-jump-word-mode)
 
-;; M-left/right - prev buffer, next buffer
-;; M-up/down - move line up/down
 ;; ctrl-y - ctrl-y - should revolve through kill ring, ctrl-s-y kill ring
-;; ctrl-z - undo, ctrl-shift-z - redo, meta-z - undo tree
 ;; meta-j - ace jump to char, meta-z - ace zap(cut) to char, meta-p copy to char
 ;; [f5] - reload file ctrl-x ctrl-v
 ;; [cx cc] - compile
@@ -55,12 +53,25 @@
 (global-set-key [S-left]  'windmove-left)
 (global-set-key [S-right] 'windmove-right)
 
+;; (global-set-key [(f10)] 'buffer-stack-bury)
+;; (global-set-key [(control f10)] 'buffer-stack-bury-and-kill)
+(global-set-key [M-up] 'move-text-up)
+(global-set-key [M-down] 'move-text-down)
+(global-set-key [M-right] 'buffer-stack-up)
+(global-set-key [M-left] 'buffer-stack-down)
+(global-set-key [M-S-right] 'buffer-stack-up-thru-all)
+(global-set-key [M-S-left] 'buffer-stack-down-thru-all)
+
+;; (global-set-key [(shift f10)] 'buffer-stack-bury-thru-all)
+
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+(global-set-key (kbd "C-*") 'er/expand-region)
 
 ;; (global-set-key (kbd "C-x C-z") 'magit-status)
 ;; (global-set-key (kbd "C-x C-/") 'goto-last-change)
@@ -69,23 +80,6 @@
 ;; (key-chord-define c++-mode-map ";;" "\C-e;")
 ;; (space-chord-define c-mode-map "c" 'compile)
 ;; (global-set-key (kbd "C-?") 'undo-tree-visualize)
-
-(global-set-key "\M-z" 'fastnav-zap-up-to-char-forward)
-(global-set-key "\M-Z" 'fastnav-zap-up-to-char-backward)
-(global-set-key "\M-s" 'fastnav-jump-to-char-forward)
-(global-set-key "\M-S" 'fastnav-jump-to-char-backward)
-(global-set-key "\M-r" 'fastnav-replace-char-forward)
-(global-set-key "\M-R" 'fastnav-replace-char-backward)
-(global-set-key "\M-i" 'fastnav-insert-at-char-forward)
-(global-set-key "\M-I" 'fastnav-insert-at-char-backward)
-(global-set-key "\M-j" 'fastnav-execute-at-char-forward)
-(global-set-key "\M-J" 'fastnav-execute-at-char-backward)
-(global-set-key "\M-k" 'fastnav-delete-char-forward)
-(global-set-key "\M-K" 'fastnav-delete-char-backward)
-(global-set-key "\M-m" 'fastnav-mark-to-char-forward)
-(global-set-key "\M-M" 'fastnav-mark-to-char-backward)
-(global-set-key "\M-p" 'fastnav-sprint-forward)
-(global-set-key "\M-P" 'fastnav-sprint-backward)
 
 (global-set-key (kbd "<f8>") 'flyspell-check-next-highlighted-word)
 (global-set-key (kbd "S-<f8>") 'flyspell-check-previous-highlighted-word)
