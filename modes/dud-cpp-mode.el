@@ -28,14 +28,6 @@
 ;; Besides setting up google-c-style mode it provides convenience functions
 ;; that you can use to rotate betweeh header, implementation and cpp files.
 
-(defun dud-c-mode-hook ()
-  "Customizations to c-mode"
-  (setq whitespace-style '(face trailing tabs lines-tail newline empty))
-  (setq whitespace-line-column 80)
-  (whitespace-mode t)
-  (subword-mode)
-  (local-set-key (kbd "<f5>") 'dud-c-rotate))
-
 ;; file-name suffix is compared with first elements from the list
 ;; in the order specified here.
 (defvar dud-c-rotation-map '((".hpp" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
@@ -72,6 +64,17 @@
                 when (file-exists-p file) return (find-file file))
           (message "No file found for any rotation."))
       (message "No rotation defined for current file"))))
+
+(defun dud-c-mode-hook ()
+  "Customizations to c-mode"
+  (setq whitespace-style '(face trailing tabs lines-tail newline empty))
+  (setq whitespace-line-column 80)
+  (whitespace-mode t)
+  (subword-mode)
+  (local-set-key (kbd "<f5>") 'dud-c-rotate)
+  (font-lock-add-keywords
+   nil
+   '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
 
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)

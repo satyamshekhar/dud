@@ -34,7 +34,10 @@
   "Customizations to c-mode"
   (setq whitespace-style '(face trailing tabs lines-tail newline empty))
   (setq whitespace-line-column 80)
-  (whitespace-mode t))
+  (whitespace-mode t)
+  (font-lock-add-keywords
+   nil
+   '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
