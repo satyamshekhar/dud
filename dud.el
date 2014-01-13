@@ -1,6 +1,8 @@
-;; Dud is emacs configuration for dummy's. It's meant to expose the
-;; power of emacs without much configuration and at the same time
-;; adhereing to emacs philosophy of customization.
+;;; package --- dud.el
+;;; Commentary:
+;; Dud is Emacs configuration for dummy's.  It's meant to expose the
+;; power of Emacs without much configuration and at the same time
+;; adhereing to Emacs philosophy of customization.
 ;;
 ;;     Copyright (C) 2013  Satyam Shekhar
 ;;
@@ -19,26 +21,26 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
-;; List of packages that dud sets up for you. Comment out any packages
-;; that you dislike/don't need. Dud will not set that package up and
+;; List of packages that dud sets up for you.  Comment out any packages
+;; that you dislike/don't need.  Dud will not set that package up and
 ;; remove all the key-bindings that it uses.
-;; Unused right now.
+;;; Code:
 (defvar dud-install-packages
   '(ace-jump-mode     ;; Try with C-c SPC
     ack-and-a-half    ;; better grep
-    auto-complete     ;; complete as you type with overlays
     color-theme       ;; required for supported themes.
-    eclim             ;; eclipse features into emacs.
-    el-get            ;; package manager
-    emacs-jabber      ;; jabber support for emacs.
-    escreen           ;; screen for emacs, C-\ C-h
-    evil              ;; vim mode
+    auto-complete     ;; auto-completions
+    ;; eclim             ;; eclipse features into emacs.
+    ;; el-get            ;; package manager
+    ;; emacs-jabber      ;; jabber support for emacs.
+    ;; escreen           ;; screen for emacs, C-\ C-h
+    ;; evil              ;; vim mode
     expand-region     ;; expand-region by region
     flycheck          ;; on the fly check for compilation errors.
     flx               ;; better suggestions for ido
     g-client          ;; google client.
     ;; goto-last-change  ;; jump to last change.
-    helm              ;; navigator.
+    ;; helm              ;; navigator.
     ido-ubiquitous    ;; use ido everywhere.
     js2-mode          ;; better js mode.
     key-chord         ;; More option for key-bindings.
@@ -50,16 +52,15 @@
     ;; tabbar            ;; a tab bar at the top.
     ;; undo-tree      ;; undo tree - disables re-doing with undo.
     yasnippet)        ;; snippets
-  "List of packages to be enabled/setup by dud. Commenting out any package
-that you don't need will disable it from dud.")
+  "List of packages to be enabled/setup by dud.
+Commenting out any package that you don't need will disable it from dud.")
 
 ;; Nagios mode.
-;; Nginx mode for nginx.conf
-;;
 
 (defvar dud-root-dir (file-name-directory load-file-name)
-  "Directory from where this file is loaded. This file will initialize
-dud assuming the project structure is same on all machines.")
+  "Directory from where this file is loaded.
+This file will initialize dud assuming the project structure is same on all
+machines.")
 
 (message "Initializing dud: %s." dud-root-dir)
 
@@ -68,8 +69,8 @@ dud assuming the project structure is same on all machines.")
 (defvar dud-personal-dir (expand-file-name "personal" dud-root-dir)
   "Directory where personal customizations should go.")
 (defvar dud-themes-dir (expand-file-name "themes" dud-root-dir)
-  "Directory where themes are stored. Do a M-x load theme <Enter> to
-see a list of available options.")
+  "Directory where themes are stored.
+Do a M-x load theme <Enter> to see a list of available options.")
 (defvar dud-lib-dir (expand-file-name "lib" dud-root-dir)
   "Directory where needed libraries are stored.")
 (defvar dud-modes-dir (expand-file-name "modes" dud-root-dir)
@@ -96,3 +97,7 @@ see a list of available options.")
 ;; Saves all the UI customization to this file.
 (setq custom-file (expand-file-name "custom.el" dud-personal-dir))
 (load custom-file)
+
+(provide 'dud)
+
+;;; dud.el ends here

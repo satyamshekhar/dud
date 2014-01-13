@@ -20,3 +20,9 @@
 ;; 02110-1301, USA.
 
 (color-theme-ir-black)
+
+;; (set-default-font "Source Code Pro")
+;; (set-face-attribute 'default nil :height 110)
+
+(set-default-font "Ubuntu Mono 13")
+(set-face-attribute 'default nil :height 130)

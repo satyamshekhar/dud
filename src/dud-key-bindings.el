@@ -38,7 +38,9 @@
 (global-set-key [f12] 'menu-bar-mode)
 
 (global-set-key (kbd "C-x t") 'eshell)
-(global-set-key (kbd "C-S-J") 'ace-jump-word-mode)
+(global-set-key (kbd "C-S-J") 'ace-jump-char-mode)
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; ctrl-y - ctrl-y - should revolve through kill ring, ctrl-s-y kill ring
 ;; meta-j - ace jump to char, meta-z - ace zap(cut) to char, meta-p copy to char
@@ -67,9 +69,6 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 (global-set-key (kbd "C-*") 'er/expand-region)
 

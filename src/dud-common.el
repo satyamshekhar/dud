@@ -29,7 +29,7 @@
 (setq frame-title-format "%b - emacs")
 
 ;; Increase GC memory limit.
-(setq gc-cons-threshold 20000000)
+(setq gc-cons-threshold 500000000)
 
 ;; Use to C-q C-i insert horizontal tabs.
 (setq-default indent-tabs-mode nil)
