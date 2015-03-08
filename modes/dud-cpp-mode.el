@@ -71,7 +71,7 @@
   (setq whitespace-line-column 80)
   (whitespace-mode t)
   (subword-mode)
-  (local-set-key (kbd "<f5>") 'dud-c-rotate)
+  ;; (local-set-key (kbd "<f5>") 'dud-c-rotate)
   (font-lock-add-keywords
    nil
    '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))

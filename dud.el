@@ -46,7 +46,7 @@
     key-chord         ;; More option for key-bindings.
     kill-ring-rotate  ;; browse and rotate kill rings.
     nginx-mode        ;; Mode to edit nginx config.
-    magit             ;; git support.
+    ;; magit             ;; git support.
     smex              ;; Better M-x
     space-chord       ;; Enable space binding for key-chord.
     ;; tabbar            ;; a tab bar at the top.

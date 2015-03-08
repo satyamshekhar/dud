@@ -18,6 +18,15 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
+(require 'profiler)
+
+(defun dud-profile ()
+ "Profile"
+ (interactive)
+ (profiler-start 'cpu+mem)
+ (thoughtspot-c-rotate)
+ (profiler-report))
+
 (defun dud-toggle-fullscreen ()
   "Toggle full screen"
   (interactive)
