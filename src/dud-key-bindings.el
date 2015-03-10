@@ -50,6 +50,10 @@
 ;; diff two files in open buffer like vim diff.
 ;; zoo keeper traversal from emacs.
 
+;; shift+up received as <select> in xterm, breaks usage in vm.
+(if (equal "xterm" (tty-type))
+    (define-key input-decode-map "\e[1;2A" [S-up]))
+
 (global-set-key [S-up]    'windmove-up)
 (global-set-key [S-down]  'windmove-down)
 (global-set-key [S-left]  'windmove-left)
