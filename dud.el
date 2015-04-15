@@ -89,6 +89,8 @@ Do a M-x load theme <Enter> to see a list of available options.")
 (dolist (init-dir init-directory-list)
   (add-to-list 'load-path init-dir))
 
+(add-to-list 'custom-theme-load-path dud-themes-dir)
+
 (dolist (init-dir init-directory-list)
   (let ((file (expand-file-name "dud-init.el" init-dir)))
     (when (file-exists-p file)

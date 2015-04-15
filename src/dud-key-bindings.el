@@ -51,7 +51,7 @@
 ;; zoo keeper traversal from emacs.
 
 ;; shift+up received as <select> in xterm, breaks usage in vm.
-(if (equal "xterm" (tty-type))
+(if (or (equal "xterm" (tty-type)) (equal (tty-type) "xterm-256color"))
     (define-key input-decode-map "\e[1;2A" [S-up]))
 
 (global-set-key [S-up]    'windmove-up)
