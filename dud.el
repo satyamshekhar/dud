@@ -35,7 +35,7 @@
     ;; emacs-jabber      ;; jabber support for emacs.
     ;; escreen           ;; screen for emacs, C-\ C-h
     ;; evil              ;; vim mode
-    expand-region     ;; expand-region by region
+    ;; expand-region     ;; expand-region by region
     flycheck          ;; on the fly check for compilation errors.
     flx               ;; better suggestions for ido
     g-client          ;; google client.
@@ -50,7 +50,7 @@
     smex              ;; Better M-x
     space-chord       ;; Enable space binding for key-chord.
     ;; tabbar            ;; a tab bar at the top.
-    ;; undo-tree      ;; undo tree - disables re-doing with undo.
+    ;; undo-tree         ;; undo tree - disables re-doing with undo.
     yasnippet)        ;; snippets
   "List of packages to be enabled/setup by dud.
 Commenting out any package that you don't need will disable it from dud.")
@@ -97,8 +97,8 @@ Do a M-x load theme <Enter> to see a list of available options.")
       (load file))))
 
 ;; Saves all the UI customization to this file.
-(setq custom-file (expand-file-name "custom.el" dud-personal-dir))
-(load custom-file)
+;; (setq custom-file (expand-file-name "custom.el" dud-personal-dir))
+;; (load custom-file)
 
 (provide 'dud)
 

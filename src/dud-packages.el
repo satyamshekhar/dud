@@ -30,8 +30,8 @@
 (persp-mode)
 
 ; (require 'undo-tree)
-(undo-tree-mode -1)
-(global-undo-tree-mode -1)
+; (undo-tree-mode -1)
+; (global-undo-tree-mode -1)
 
 (require 'flx-ido)
 (ido-mode 1)
