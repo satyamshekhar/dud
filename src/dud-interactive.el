@@ -27,14 +27,6 @@
  (thoughtspot-c-rotate)
  (profiler-report))
 
-(defun dud-grep ()
-  "Grep on project root."
-  )
-
-(defun dud-grep-cpp ()
-  "Run grep project root on cpp files."
-  )
-
 (defun dud-toggle-fullscreen ()
   "Toggle full screen"
   (interactive)

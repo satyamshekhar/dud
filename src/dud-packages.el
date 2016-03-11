@@ -53,6 +53,35 @@
 (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
 
 (require 'ack-and-a-half)
+(defvar dud-grep-ignore-dirs
+  '("datasets/"
+    "demos/"
+    "mobile/"
+    "production/prod_image/"
+    "sage/datagen/"
+    "is:third-party"
+    "is:target"
+    "is:testdata"
+    "is:gen-files"
+    "is:generated-files"
+    "is:resources"
+    "is:node_modules"
+    )
+  "Directories ignored during grep.")
+(defvar dud-grep-ignore-files
+  '("ext:class"
+    "ext:lst"
+    "ext:cfg"
+    "ext:log"
+    "ext:json"
+    "is:core")
+  "Extensions ignored during grep.")
+(defun dud-prepend (prefix list)
+  (mapcar (lambda (x) (concat prefix x)) list))
+(setq ack-and-a-half-arguments
+      (append (dud-prepend "--ignore-dir=" dud-grep-ignore-dirs)
+              (dud-prepend "--ignore-file=" dud-grep-ignore-files))
+      )
 (defalias 'ack 'ack-and-a-half)
 (defalias 'ack-same 'ack-and-a-half-same)
 (defalias 'ack-find-file 'ack-and-a-half-find-file)

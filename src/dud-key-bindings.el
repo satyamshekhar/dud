@@ -42,8 +42,8 @@
 (global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
-(global-set-key (kbd "C-x g") 'dud-grep-cpp)
-(global-set-key (kbd "C-x G") 'dud-grep)
+(global-set-key (kbd "C-x g") 'ack-and-a-half)
+(global-set-key (kbd "C-x G") 'ack-same)
 (global-set-key (kbd "C-c n") 'next-error)
 (global-set-key (kbd "C-c N") 'previous-error)
 
