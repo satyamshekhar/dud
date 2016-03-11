@@ -9,12 +9,12 @@
 ;; syntax coloring
 (defconst thrift-font-lock-keywords
   (list
-   '("#.*$" . font-lock-comment-face) ;; perl style comments
-   '("\\<\\(include\\|struct\\|union\\|namespace\\|exception\\|typedef\\|php_namespace\\|const\\|enum\\|service\\|extends\\|void\\|async\\|throws\\|optional\\|required\\)\\>" . font-lock-keyword-face) ;; keywords
-   '("\\<\\(bool\\|byte\\|i16\\|i32\\|i64\\|double\\|string\\|binary\\|map\\|list\\|set\\)\\>" . font-lock-type-face) ;; built-in types
-   '("\\<\\([A-Z]\\w*\\)\\>" . font-lock-type-face) ;; typenames (unions & structs)
-   '("\\<\\([0-9]+\\)\\>" . font-lock-variable-name-face) ;; ordinals
-   '("\\<\\(\\w+\\)\\s-*(" (1 font-lock-function-name-face)) ;; functions
+   '("#.*$" . font-lock-comment-face)  ;; perl style comments
+   '("\\<\\(include\\|struct\\|union\\|namespace\\|exception\\|typedef\\|php_namespace\\|const\\|enum\\|service\\|extends\\|void\\|async\\|throws\\|optional\\|required\\)\\>" . font-lock-keyword-face)  ;; keywords
+   '("\\<\\(bool\\|byte\\|i16\\|i32\\|i64\\|double\\|string\\|binary\\|map\\|list\\|set\\)\\>" . font-lock-type-face)  ;; built-in types
+   '("\\<\\([A-Z]\\w*\\)\\>" . font-lock-type-face)   ;; typenames (unions & structs)
+   '("\\<\\([0-9]+\\)\\>" . font-lock-variable-name-face)   ;; ordinals
+   '("\\<\\(\\w+\\)\\s-*(" (1 font-lock-function-name-face))  ;; functions
    )
   "Thrift Keywords")
 
@@ -91,7 +91,8 @@
     (modify-syntax-entry ?/ ". 124b" thrift-mode-syntax-table)
     (modify-syntax-entry ?* ". 23" thrift-mode-syntax-table)
     (modify-syntax-entry ?\n "> b" thrift-mode-syntax-table)
-    thrift-mode-syntax-table) "Syntax table for thrift-mode")
+    thrift-mode-syntax-table)
+  "Syntax table for thrift-mode")
 
 (defun thrift-mode ()
   "Mode for editing Thrift files"
@@ -102,6 +103,6 @@
   (setq major-mode 'thrift-mode)
   (setq mode-name "Thrift")
   (run-hooks 'thrift-mode-hook)
-  (set (make-local-variable 'indent-line-function) 'thrift-indent-line))
-
+  (set (make-local-variable 'indent-line-function) 'thrift-indent-line)
+  )
 (provide 'thrift-mode)

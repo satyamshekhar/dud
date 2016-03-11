@@ -26,22 +26,25 @@
 ;; remove all the key-bindings that it uses.
 ;;; Code:
 (defvar dud-install-packages
-  '(ace-jump-mode     ;; Try with C-c SPC
+  '(ace-jump-mode        ;; Try with C-c SPC
     ack-and-a-half    ;; better grep
-    color-theme       ;; required for supported themes.
-    auto-complete     ;; auto-completions
+    ;; auto-complete     ;; auto-completions
+    color-theme          ;; required for supported themes.
+    ;; company-mode      ;; for auto completions.
+    company-flx          ;; Fuzzy matching for company.
     ;; eclim             ;; eclipse features into emacs.
     ;; el-get            ;; package manager
     ;; emacs-jabber      ;; jabber support for emacs.
     ;; escreen           ;; screen for emacs, C-\ C-h
-    ;; evil              ;; vim mode
+    ;; evil                 ;; vim mode
+    ;; evil-leader          ;; vim-leader mode
     ;; expand-region     ;; expand-region by region
-    flycheck          ;; on the fly check for compilation errors.
+    flycheck             ;; on the fly check for compilation errors.
     flx               ;; better suggestions for ido
     g-client          ;; google client.
     ;; goto-last-change  ;; jump to last change.
     ;; helm              ;; navigator.
-    ido-ubiquitous    ;; use ido everywhere.
+    ;; ido-ubiquitous    ;; use ido everywhere.
     js2-mode          ;; better js mode.
     key-chord         ;; More option for key-bindings.
     kill-ring-rotate  ;; browse and rotate kill rings.
@@ -54,6 +57,16 @@
     yasnippet)        ;; snippets
   "List of packages to be enabled/setup by dud.
 Commenting out any package that you don't need will disable it from dud.")
+
+(defvar dud-themes '(color-theme-almost-monokai
+                     color-theme-chocolate-rain
+                     color-theme-desert
+                     color-theme-ir-black
+                     color-theme-tomorrow)
+  "List of themes installed by dud.")
+;; Themes have recipes defined for elget.
+(dolist (dud-theme dud-themes)
+  (add-to-list 'dud-install-packages dud-theme))
 
 ;; Nagios mode.
 
@@ -91,10 +104,12 @@ Do a M-x load theme <Enter> to see a list of available options.")
 
 (add-to-list 'custom-theme-load-path dud-themes-dir)
 
-(dolist (init-dir init-directory-list)
-  (let ((file (expand-file-name "dud-init.el" init-dir)))
-    (when (file-exists-p file)
-      (load file))))
+(defun dud-init ()
+ "Initializes dud."
+ (dolist (init-dir init-directory-list)
+   (let ((file (expand-file-name "dud-init.el" init-dir)))
+     (when (file-exists-p file)
+       (load file)))))
 
 ;; Saves all the UI customization to this file.
 ;; (setq custom-file (expand-file-name "custom.el" dud-personal-dir))

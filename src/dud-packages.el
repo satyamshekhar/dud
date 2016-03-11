@@ -33,15 +33,18 @@
 ; (undo-tree-mode -1)
 ; (global-undo-tree-mode -1)
 
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-(setq ido-use-faces nil)
-(setq ido-enable-flex-matching t)
-(setq ido-enable-tramp-completion nil)
-(setq ido-create-new-buffer 'always)
-(ido-ubiquitous-mode t)
+;; (require 'flx-ido)
+;; (ido-mode 1)
+;; (ido-everywhere 1)
+;; (flx-ido-mode 1)
+;; (setq ido-use-faces nil)
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-enable-tramp-completion nil)
+;; (setq ido-create-new-buffer 'always)
+;; (ido-ubiquitous-mode t)
+
+;; Enable company-flx mode.
+(add-hook 'c++-mode-hook 'company-flx-mode)
 
 (autoload 'ace-jump-mode "ace-jump-mode"
   "Emacs quick move minor mode" t)
@@ -69,11 +72,11 @@
   (flyspell-goto-next-error)
   (ispell-word))
 
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-auto-start nil)
-(define-key ac-mode-map [(meta return)] 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.emacs/ac-dicts")
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (setq ac-auto-start nil)
+;; (define-key ac-mode-map [(meta return)] 'auto-complete)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs/ac-dicts")
 
 (require 'buffer-stack-suppl)
 

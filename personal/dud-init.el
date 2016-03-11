@@ -20,6 +20,8 @@
 ;; 02110-1301, USA.
 
 (color-theme-ir-black)
+(color-theme-desert)
+;; Finally load noctilux theme.
 ;; (set-default-font "Source Code Pro")
 ;; (set-face-attribute 'default nil :height 110)
 
