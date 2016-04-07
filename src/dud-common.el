@@ -43,10 +43,6 @@
 (global-auto-revert-mode -1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(require 'whitespace)
-(global-whitespace-mode t)
-(setq whitespace-style '(face trailing tabs lines-tail newline empty))
-
 (defvar user-temporary-file-directory
   (concat temporary-file-directory user-login-name "/"))
 (make-directory user-temporary-file-directory t)
