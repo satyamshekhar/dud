@@ -80,8 +80,7 @@
   (mapcar (lambda (x) (concat prefix x)) list))
 (setq ack-and-a-half-arguments
       (append (dud-prepend "--ignore-dir=" dud-grep-ignore-dirs)
-              (dud-prepend "--ignore-file=" dud-grep-ignore-files))
-      )
+              (dud-prepend "--ignore-file=" dud-grep-ignore-files)))
 (defalias 'ack 'ack-and-a-half)
 (defalias 'ack-same 'ack-and-a-half-same)
 (defalias 'ack-find-file 'ack-and-a-half-find-file)

@@ -48,6 +48,7 @@
     js2-mode          ;; better js mode.
     key-chord         ;; More option for key-bindings.
     kill-ring-rotate  ;; browse and rotate kill rings.
+    ;; multiple-cursors  ;; Multiple cursors
     nginx-mode        ;; Mode to edit nginx config.
     ;; magit             ;; git support.
     smex              ;; Better M-x
