@@ -65,20 +65,8 @@
           (message "No file found for any rotation."))
       (message "No rotation defined for current file"))))
 
-(defun dud-c-mode-hook ()
-  "Customizations to c-mode"
-  (setq whitespace-style '(face trailing tabs lines-tail newline empty))
-  (setq whitespace-line-column 80)
-  (whitespace-mode t)
-  (subword-mode)
-  ;; (local-set-key (kbd "<f5>") 'dud-c-rotate)
-  (font-lock-add-keywords
-   nil
-   '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
-
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-(add-hook 'c-mode-common-hook 'dud-c-mode-hook)
 
 (provide 'dud-cpp-mode)

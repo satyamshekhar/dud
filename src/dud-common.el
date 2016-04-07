@@ -67,4 +67,16 @@
 (setq auto-mode-alist
       (cons '("SConscript" . python-mode) auto-mode-alist))
 
+(defun dud-prog-mode-hook ()
+  "Customizations to prog-mode"
+  (setq whitespace-style '(face trailing tabs lines-tail newline empty))
+  (setq whitespace-line-column 80)
+  (whitespace-mode t)
+  (linum-mode 1)
+  (subword-mode)
+  (font-lock-add-keywords
+   nil
+   '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
+(add-hook 'prog-mode-hook 'dud-prog-mode-hook)
+
 (provide 'dud-common)
