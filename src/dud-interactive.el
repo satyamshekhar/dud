@@ -55,6 +55,20 @@
     (let ((command (read-string "Command: ")))
       (shell-command (concat command " &") (concat "*" command "*"))))
 
+(defun dud-randomize-region (beg end)
+  "Randomize lines in region from BEG to END."
+  (interactive "*r")
+  (let ((lines (split-string
+                (delete-and-extract-region beg end) "\n")))
+    (when (string-equal "" (car (last lines 1)))
+      (setq lines (butlast lines 1)))
+    (apply 'insert
+           (mapcar 'cdr (sort (mapcar
+                               (lambda (x)
+                                 (cons (random)
+                                       (concat x "\n"))) lines)
+                              (lambda (a b) (< (car a) (car b))))))))
+
 ;; TODO(satyam): Improve this to keep the correct cursor position.
 ;; The following three functions are taken from an email thread.
 (defun move-text-internal (arg)
