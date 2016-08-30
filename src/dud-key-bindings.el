@@ -26,12 +26,24 @@
 (require 'key-chord)
 (key-chord-mode 1)
 
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-(global-set-key (kbd "C-)") (lambda ()
-                              (interactive)
-                              (text-scale-set 0)))
+;; shift+up received as <select> in xterm, breaks usage in vm.
+(if (or (equal "xterm" (tty-type)) (equal (tty-type) "xterm-256color"))
+    (define-key input-decode-map "\e[1;2A" [S-up]))
+
+(global-set-key [S-up]    'windmove-up)
+(global-set-key [S-down]  'windmove-down)
+(global-set-key [S-left]  'windmove-left)
+(global-set-key [S-right] 'windmove-right)
+
+;; (global-set-key (kbd "C-c +") 'text-scale-increase)
+;; (global-set-key (kbd "C-c -") 'text-scale-decrease)
+;; (global-set-key (kbd "C-)") (lambda ()
+;;                               (interactive)
+;;                               (text-scale-set 0)))
 (global-set-key (kbd "C-;") 'dud-current-line-to-top)
+
+(global-set-key (kbd "M-(") 'dud-decrement-number-at-point)
+(global-set-key (kbd "M-)") 'dud-increment-number-at-point)
 
 (global-set-key [f9] 'dud-shell-command-bg)
 (global-set-key [f11] 'dud-toggle-fullscreen)
@@ -55,14 +67,6 @@
 ;; diff two files in open buffer like vim diff.
 ;; zoo keeper traversal from emacs.
 
-;; shift+up received as <select> in xterm, breaks usage in vm.
-(if (or (equal "xterm" (tty-type)) (equal (tty-type) "xterm-256color"))
-    (define-key input-decode-map "\e[1;2A" [S-up]))
-
-(global-set-key [S-up]    'windmove-up)
-(global-set-key [S-down]  'windmove-down)
-(global-set-key [S-left]  'windmove-left)
-(global-set-key [S-right] 'windmove-right)
 
 ;; (global-set-key [(f10)] 'buffer-stack-bury)
 ;; (global-set-key [(control f10)] 'buffer-stack-bury-and-kill)

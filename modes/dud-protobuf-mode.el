@@ -34,9 +34,6 @@
 (add-hook 'protobuf-mode-hook
     (lambda ()
       (c-add-style "my-style" dud-protobuf-style t)
-      (font-lock-add-keywords
-       nil
-       '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t)))
       ))
 
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))

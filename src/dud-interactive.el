@@ -104,4 +104,23 @@
    (interactive "*p")
    (move-text-internal (- arg)))
 
+(defun dud-change-number-at-point (change)
+  "Change number at point."
+  (let ((number (number-at-point))
+        (point (point)))
+    (when number
+      (progn
+        (forward-word)
+        (search-backward (number-to-string number))
+        (replace-match (number-to-string (funcall change number)))
+        (goto-char point)))))
+(defun dud-increment-number-at-point ()
+  "Increment number at point."
+  (interactive)
+  (dud-change-number-at-point '1+))
+(defun dud-decrement-number-at-point ()
+  "Decrement number at point."
+  (interactive)
+  (dud-change-number-at-point '1-))
+
 (provide 'dud-interactive)

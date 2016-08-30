@@ -74,5 +74,6 @@
    nil
    '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
 (add-hook 'prog-mode-hook 'dud-prog-mode-hook)
+(add-hook 'protobuf-mode-hook 'dud-prog-mode-hook)
 
 (provide 'dud-common)
