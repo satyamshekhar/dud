@@ -26,22 +26,22 @@
 (require 'smex)
 (smex-initialize)
 
-(require 'perspective)
-(persp-mode)
+;; (require 'perspective)
+;; (persp-mode)
 
 ; (require 'undo-tree)
 ; (undo-tree-mode -1)
 ; (global-undo-tree-mode -1)
 
-;; (require 'flx-ido)
-;; (ido-mode 1)
-;; (ido-everywhere 1)
-;; (flx-ido-mode 1)
-;; (setq ido-use-faces nil)
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-enable-tramp-completion nil)
-;; (setq ido-create-new-buffer 'always)
-;; (ido-ubiquitous-mode t)
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+(setq ido-enable-flex-matching t)
+(setq ido-enable-tramp-completion nil)
+(setq ido-create-new-buffer 'always)
+(ido-ubiquitous-mode t)
 
 ;; Enable company-flx mode.
 (add-hook 'c++-mode-hook 'company-flx-mode)

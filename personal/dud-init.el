@@ -19,8 +19,11 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
-(color-theme-ir-black)
-(color-theme-desert)
+;; (color-theme-ir-black)
+;; (color-theme-desert)
+;; (color-theme-zenburn)
+;; (color-theme-noctilux)
+
 ;; Finally load noctilux theme.
 ;; (set-default-font "Source Code Pro")
 ;; (set-face-attribute 'default nil :height 110)

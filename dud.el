@@ -27,32 +27,37 @@
 ;;; Code:
 (defvar dud-install-packages
   '(ace-jump-mode        ;; Try with C-c SPC
-    ack-and-a-half    ;; better grep
+		ace-window
+    ack-and-a-half       ;; Better grep
     ;; auto-complete     ;; auto-completions
     color-theme          ;; required for supported themes.
-    ;; company-mode      ;; for auto completions.
+    company-mode         ;; for auto completions.
     company-flx          ;; Fuzzy matching for company.
     ;; eclim             ;; eclipse features into emacs.
-    ;; el-get            ;; package manager
+    el-get               ;; package manager
     ;; emacs-jabber      ;; jabber support for emacs.
     ;; escreen           ;; screen for emacs, C-\ C-h
-    ;; evil                 ;; vim mode
-    ;; evil-leader          ;; vim-leader mode
+    ;; evil              ;; vim mode
+    ;; evil-leader       ;; vim-leader mode
     ;; expand-region     ;; expand-region by region
+    f
+    flx                  ;; better suggestions for ido
     flycheck             ;; on the fly check for compilation errors.
-    flx               ;; better suggestions for ido
-    g-client          ;; google client.
+    go-mode
+    ;; g-client          ;; google client.
     ;; goto-last-change  ;; jump to last change.
     ;; helm              ;; navigator.
-    ;; ido-ubiquitous    ;; use ido everywhere.
-    js2-mode          ;; better js mode.
-    key-chord         ;; More option for key-bindings.
-    kill-ring-rotate  ;; browse and rotate kill rings.
+    ido-ubiquitous       ;; use ido everywhere.
+    ;; impatient-mode
+    js2-mode             ;; better js mode.
+    key-chord            ;; More option for key-bindings.
+    kill-ring-rotate     ;; browse and rotate kill rings.
     ;; multiple-cursors  ;; Multiple cursors
-    nginx-mode        ;; Mode to edit nginx config.
+    nginx-mode           ;; Mode to edit nginx config.
     ;; magit             ;; git support.
-    smex              ;; Better M-x
-    space-chord       ;; Enable space binding for key-chord.
+    smex                 ;; Better M-x
+    space-chord          ;; Enable space binding for key-chord.
+    vimish-fold          ;; Vim like folding.
     ;; tabbar            ;; a tab bar at the top.
     ;; undo-tree         ;; undo tree - disables re-doing with undo.
     yasnippet)        ;; snippets

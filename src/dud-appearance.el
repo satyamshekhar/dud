@@ -23,8 +23,11 @@
 (setq line-number-mode t)
 (setq column-number-mode nil)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+;; Hide tool bar.
+(if (display-graphic-p)
+    (progn (tool-bar-mode -1)
+           (scroll-bar-mode -1)))
+
 (menu-bar-mode -1)
 
 (global-hl-line-mode t)

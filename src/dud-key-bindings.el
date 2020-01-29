@@ -34,6 +34,9 @@
 (global-set-key [S-down]  'windmove-down)
 (global-set-key [S-left]  'windmove-left)
 (global-set-key [S-right] 'windmove-right)
+(global-set-key (kbd "C-x o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(setq aw-background t)
 
 ;; (global-set-key (kbd "C-c +") 'text-scale-increase)
 ;; (global-set-key (kbd "C-c -") 'text-scale-decrease)

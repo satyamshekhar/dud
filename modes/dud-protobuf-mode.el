@@ -28,8 +28,7 @@
 (require 'protobuf-mode)
 
 (defconst dud-protobuf-style
-  '((c-basic-offset . 2)
-    (indent-tabs-mode . nil)))
+  '((c-basic-offset . 2)))
 
 (add-hook 'protobuf-mode-hook
     (lambda ()

@@ -32,7 +32,7 @@
 (setq gc-cons-threshold 500000000)
 
 ;; Use to C-q C-i insert horizontal tabs.
-(setq-default indent-tabs-mode nil)
+;; (setq-default indent-tabs-mode nil)
 
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -63,17 +63,51 @@
 (setq auto-mode-alist
       (cons '("SConscript" . python-mode) auto-mode-alist))
 
+(defun dud-use-tabs ()
+  ""
+  (setq-default indent-tabs-mode 1)
+  (setq-default tab-width 2))
+
+(defun dud-cc-mode-hook ()
+	""
+	(dud-use-tabs)
+	(defvaralias 'c-basic-offset 'tab-width))
+
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
-  (setq whitespace-style '(face trailing tabs lines-tail newline empty))
-  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face trailing lines-tail newline empty))
+  (setq whitespace-line-column 75)
   (whitespace-mode t)
   (linum-mode 1)
   (subword-mode)
   (font-lock-add-keywords
    nil
    '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
+
 (add-hook 'prog-mode-hook 'dud-prog-mode-hook)
+(add-hook 'markdown-mode-hook 'dud-prog-mode-hook)
 (add-hook 'protobuf-mode-hook 'dud-prog-mode-hook)
+
+;; Use tabs for C++, Java, Go and Json
+(add-hook 'protobuf-mode-hook 'dud-use-tabs)
+(add-hook 'sh-mode-hook 'dud-use-tabs)
+(add-hook 'cc-mode-hook 'dud-cc-mode-hook)
+(add-hook 'java-mode-hook 'dud-use-tabs)
+(add-hook 'js-mode-hook 'dud-use-tabs)
+(add-hook 'go-mode-hook 'dud-use-tabs)
+
+;; View markdown at.
+(defun dud-markdown-html (buffer)
+  (princ (with-current-buffer buffer
+    (format "<!DOCTYPE html><html><title>Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
+         (current-buffer)))
+(impatient-mode)
+;; M-o to open markdown
+(defun dud-markdown-mode-hook ()
+  (impatient-mode)
+  (imp-set-user-filter 'dud-markdown-html)
+  (local-set-key (kbd "M-o") 'imp-visit-buffer))
+
+(add-hook 'markdown-mode-hook 'dud-markdown-mode-hook)
 
 (provide 'dud-common)
