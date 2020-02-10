@@ -52,21 +52,29 @@
       `(("." . ,user-temporary-file-directory)
         (,tramp-file-name-regexp nil)))
 (setq auto-save-list-file-prefix
-      (concat user-temporary-file-directory ".auto-saves-"))
+<      (concat user-temporary-file-directory ".auto-saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq auto-mode-alist
       (cons '("SConstruct" . python-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("SConscript" . python-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("WORKSPACE" . python-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("BUILD" . python-mode) auto-mode-alist))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun dud-use-tabs ()
   ""
-  (setq-default indent-tabs-mode 1)
-  (setq-default tab-width 2))
+  (setq-default tab-width 2)
+  (setq-default indent-tabs-mode 1))
 
 (defun dud-cc-mode-hook ()
 	""
@@ -75,14 +83,17 @@
 
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
-  (setq whitespace-style '(face trailing lines-tail newline empty))
+  (setq-default tab-width 2)
   (setq whitespace-line-column 75)
+  ;; (setq whitespace-style '(face trailing lines-tail newline empty))
+  (setq whitespace-style '(face trailing newline empty))
   (whitespace-mode t)
+	(fci-mode t)
   (linum-mode 1)
   (subword-mode)
   (font-lock-add-keywords
    nil
-   '(("\\<\\(FIXME\\|TODO\\|BUG\\)" 1 font-lock-warning-face t))))
+   '(("\\<\\(FIXME\\|TODO\\|BUG\\|NOTE\\)" 1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook 'dud-prog-mode-hook)
 (add-hook 'markdown-mode-hook 'dud-prog-mode-hook)
@@ -95,8 +106,11 @@
 (add-hook 'java-mode-hook 'dud-use-tabs)
 (add-hook 'js-mode-hook 'dud-use-tabs)
 (add-hook 'go-mode-hook 'dud-use-tabs)
+(add-hook 'yaml-mode-hook 'dud-prog-mode-hook)
+(add-hook 'before-save-hook #'gofmt-before-save)
 
-;; View markdown at.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Setup markdown
 (defun dud-markdown-html (buffer)
   (princ (with-current-buffer buffer
     (format "<!DOCTYPE html><html><title>Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
@@ -104,10 +118,28 @@
 (impatient-mode)
 ;; M-o to open markdown
 (defun dud-markdown-mode-hook ()
+  (setq-default indent-tabs-mode nil)
   (impatient-mode)
+	(fci-mode t)
   (imp-set-user-filter 'dud-markdown-html)
   (local-set-key (kbd "M-o") 'imp-visit-buffer))
 
 (add-hook 'markdown-mode-hook 'dud-markdown-mode-hook)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Setup jsonnet and tsonnet.
+(add-to-list 'auto-mode-alist '("\\.jsonnet\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.tsonnet\\'" . js-mode))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Setup fill column indicator
+(require 'fill-column-indicator)
+(setq fci-rule-column 75)
+(setq fci-rule-color "brown")
+(setq fci-rule-use-dashes -1)
+(setq fci-handle-truncate-lines nil)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'dud-common)

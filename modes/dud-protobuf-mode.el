@@ -31,9 +31,10 @@
   '((c-basic-offset . 2)))
 
 (add-hook 'protobuf-mode-hook
-    (lambda ()
-      (c-add-style "my-style" dud-protobuf-style t)
-      ))
+	(lambda ()
+		(setq-default tab-width 2)
+		(setq-default indent-tabs-mode 1)
+		(c-add-style "my-style" dud-protobuf-style t)))
 
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 

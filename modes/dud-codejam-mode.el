@@ -2,7 +2,7 @@
 ;; power of emacs without much configuration and at the same time
 ;; adhereing to emacs philosophy of customization.
 ;;
-;;     Copyright (C) 2013  Satyam Shekhar
+;;     Copyright (C) 2016  Satyam Shekhar
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -30,31 +30,11 @@
 
 ;; file-name suffix is compared with first elements from the list
 ;; in the order specified here.
-(defvar dud-c-rotation-map '((".hpp" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
-                             (".h" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
-                             ("_test.cpp" . (".hpp" ".h" ".cc" ".cpp"))
-                             (".cpp" . ("_test.cpp" ".hpp" ".h"))
-                             (".cc" . ("_test.cc" ".hpp" ".h"))))
 
-(defun ends-with (string suffix)
-  "Returns t if @string ends with @suffix, nil otherwise."
-  (let ((start (- (length string) (length suffix))))
-    (and (>= start 0)
-         (string= suffix (substring string (- (length suffix)))))))
+(require 'google-c-style)
 
-(defun dud-c-rotated-files (file-name)
-  "Returns list of file names if the file can be rotated, nil otherwise."
-  (let* ((ext-map (find-if (lambda (rotation-map)
-                             (ends-with file-name (car rotation-map)))
-                           dud-c-rotation-map))
-         (old-suffix (car ext-map))
-         (new-suffix-list (cdr ext-map)))
-    (mapcar (lambda (new-suffix)
-              (concat (substring file-name 0 (- (length old-suffix)))
-                      new-suffix)) new-suffix-list)))
-
-(defun dud-c-rotate ()
-  "Rotates buffer among file.hpp <-> file.cpp <-> file_test.cpp"
+(defun dud-codejam-runtest ()
+  "RunsTest"
   (interactive)
   (let* ((file-path (buffer-file-name))
         (rotated-files (dud-c-rotated-files file-path)))
@@ -65,15 +45,9 @@
           (message "No file found for any rotation."))
       (message "No rotation defined for current file"))))
 
-(require 'google-c-style)
+
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(add-hook 'c-mode-common-hook 'dud-configure-flycheck)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Setup clang-format
-;;
-(load "/Users/satyam/Projects/dud/lib/clang-format.el")
-(add-hook 'before-save-hook 'clang-format-buffer nil 'local)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(provide 'dud-cpp-mode)
+(provide 'dud-codejam-mode)
