@@ -73,7 +73,7 @@
 ;; Setup clang-format
 ;;
 (load "/Users/satyam/Projects/dud/lib/clang-format.el")
-(add-hook 'before-save-hook 'clang-format-buffer nil 'local)
+;; (add-hook 'before-save-hook 'clang-format-buffer nil 'local)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'dud-cpp-mode)

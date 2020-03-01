@@ -34,20 +34,19 @@
 ;; Path for the el-get package.
 (setq el-get-install-dir (expand-file-name "el-get" el-get-dir))
 ;; This directory stores a local list of ELPA recipes.
-;; (setq el-get-recipe-path-elpa
-;;       (expand-file-name "recipes/elpa" el-get-install-dir))
-;; (setq el-get-recipe-path-emacswiki
-;;       (expand-file-name "recipes/emacswiki" el-get-install-dir))
+(setq el-get-recipe-path-elpa
+      (expand-file-name "recipes/elpa" el-get-install-dir))
+(setq el-get-recipe-path-emacswiki
+      (expand-file-name "recipes/emacswiki" el-get-install-dir))
 
 (add-to-list 'load-path el-get-dir)
 (add-to-list 'load-path el-get-install-dir)
 
-;; (url-retrieve
-;;  "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
-;;  (lambda (s)
-;;    (let (el-get-master-branch)
-;;      (goto-char (point-max))
-;;      (eval-print-last-sexp))))
+(url-retrieve
+ "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el"
+ (lambda (s)
+   (goto-char (point-max))
+   (eval-print-last-sexp)))
 
 (require 'el-get)
 (setq el-get-notify-type 'message)

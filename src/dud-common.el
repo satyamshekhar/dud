@@ -52,7 +52,7 @@
       `(("." . ,user-temporary-file-directory)
         (,tramp-file-name-regexp nil)))
 (setq auto-save-list-file-prefix
-<      (concat user-temporary-file-directory ".auto-saves-"))
+      (concat user-temporary-file-directory ".auto-saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -67,9 +67,16 @@
       (cons '("WORKSPACE" . python-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("BUILD" . python-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("\\.bzl\\'" . python-mode) auto-mode-alist))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun dud-configure-flycheck ()
+  ""
+  (set (make-local-variable 'flycheck-c/c++-clang-executable)
+         thoughtspot-clang-binary))
 
 (defun dud-use-tabs ()
   ""
@@ -78,8 +85,12 @@
 
 (defun dud-cc-mode-hook ()
 	""
-	(dud-use-tabs)
-	(defvaralias 'c-basic-offset 'tab-width))
+  (setq-default tab-width 2)
+  (setq-default indent-tabs-mode 1)
+	(defvaralias 'c-basic-offset 'tab-width)
+  ;; Configure flycheck.
+
+  )
 
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
@@ -88,7 +99,7 @@
   ;; (setq whitespace-style '(face trailing lines-tail newline empty))
   (setq whitespace-style '(face trailing newline empty))
   (whitespace-mode t)
-	(fci-mode t)
+	;; (fci-mode t)
   (linum-mode 1)
   (subword-mode)
   (font-lock-add-keywords
@@ -102,7 +113,7 @@
 ;; Use tabs for C++, Java, Go and Json
 (add-hook 'protobuf-mode-hook 'dud-use-tabs)
 (add-hook 'sh-mode-hook 'dud-use-tabs)
-(add-hook 'cc-mode-hook 'dud-cc-mode-hook)
+(add-hook 'c-mode-hook 'dud-cc-mode-hook)
 (add-hook 'java-mode-hook 'dud-use-tabs)
 (add-hook 'js-mode-hook 'dud-use-tabs)
 (add-hook 'go-mode-hook 'dud-use-tabs)
@@ -120,7 +131,7 @@
 (defun dud-markdown-mode-hook ()
   (setq-default indent-tabs-mode nil)
   (impatient-mode)
-	(fci-mode t)
+	;; (fci-mode t)
   (imp-set-user-filter 'dud-markdown-html)
   (local-set-key (kbd "M-o") 'imp-visit-buffer))
 

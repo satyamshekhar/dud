@@ -27,8 +27,9 @@
 ;;; Code:
 (defvar dud-install-packages
   '(ace-jump-mode        ;; Try with C-c SPC
-		ace-window
+    ace-window
     ack-and-a-half       ;; Better grep
+    ;; bazel-mode        ;; Bazel mode for Bazel build files.
     ;; auto-complete     ;; auto-completions
     color-theme          ;; required for supported themes.
     company-mode         ;; for auto completions.

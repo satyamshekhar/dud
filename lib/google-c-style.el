@@ -64,11 +64,13 @@ Suitable for inclusion in `c-offsets-alist'."
       (goto-char (match-end 0))))
     (vector (+ 4 (current-column)))))
 
+;;;###autoload
 (defconst google-c-style
   `((c-recognize-knr-p . nil)
     (c-enable-xemacs-performance-kludge-p . t) ; speed up indentation in XEmacs
     (c-basic-offset . 2)
-    (indent-tabs-mode . nil)
+		;; NOTE(satyam): Set 1 to nil to disable tabs.
+    (indent-tabs-mode . t)
     (c-comment-only-line-offset . 0)
     (c-hanging-braces-alist . ((defun-open after)
                                (defun-close before after)
@@ -129,6 +131,7 @@ Suitable for inclusion in `c-offsets-alist'."
                         (innamespace . 0))))
   "Google C/C++ Programming Style.")
 
+;;;###autoload
 (defun google-set-c-style ()
   "Set the current buffer's c-style to Google C/C++ Programming
   Style. Meant to be added to `c-mode-common-hook'."
@@ -137,6 +140,7 @@ Suitable for inclusion in `c-offsets-alist'."
   (setq c-tab-always-indent t)
   (c-add-style "Google" google-c-style t))
 
+;;;###autoload
 (defun google-make-newline-indent ()
   "Sets up preferred newline behavior. Not set by default. Meant
   to be added to `c-mode-common-hook'."
