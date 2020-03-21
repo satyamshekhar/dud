@@ -19,6 +19,11 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
+;; Create emacs server sockets in dud directory. This directory is mounted
+;; in devdocker and allows clients in host to connect to emacs running
+;; inside devdocker.
+(setq server-socket-dir (concat dud-root-dir "/sockets"))
+
 (setq debug-on-error t)
 ;; Already enabled by default now. Keeping it here for consistency.
 (setq transient-mark-mode t)
@@ -63,12 +68,15 @@
       (cons '("SConstruct" . python-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("SConscript" . python-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("WORKSPACE" . python-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("BUILD" . python-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.bzl\\'" . python-mode) auto-mode-alist))
+;; (setq auto-mode-alist
+;;       (cons '("WORKSPACE" . python-mode) auto-mode-alist))
+;; (setq auto-mode-alist
+;;       (cons '("BUILD" . python-mode) auto-mode-alist))
+;; (setq auto-mode-alist
+;;       (cons '("\\.bzl\\'" . python-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist
+             (cons (rx (or "/BUILD" "/WORKSPACE" ".bazel" ".bzl" ".BUILD") eos)
+                   #'bazel-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -96,8 +104,8 @@
   "Customizations to prog-mode"
   (setq-default tab-width 2)
   (setq whitespace-line-column 75)
-  ;; (setq whitespace-style '(face trailing lines-tail newline empty))
-  (setq whitespace-style '(face trailing newline empty))
+  (setq whitespace-style '(face trailing lines-tail newline empty))
+  ;; (setq whitespace-style '(face trailing newline empty))
   (whitespace-mode t)
 	;; (fci-mode t)
   (linum-mode 1)

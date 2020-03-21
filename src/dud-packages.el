@@ -41,6 +41,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-enable-tramp-completion nil)
 (setq ido-create-new-buffer 'always)
+(setq ido-ignore-directories '("/Users/satyam/backup.*", "~/backup/.*"))
 (ido-ubiquitous-mode t)
 
 ;; Enable company-flx mode.

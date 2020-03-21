@@ -37,6 +37,8 @@
 (custom-set-variables
  '(initial-frame-alist '((fullscreen . maximized))))
 
-(split-window-right)
+(if (and (fboundp 'server-running-p)
+         (not (server-running-p)))
+    (split-window-right))
 
 (provide 'dud-appearance)
