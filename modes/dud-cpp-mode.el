@@ -61,8 +61,18 @@
     (if rotated-files
         (progn
           (loop for file in rotated-files
-                when (file-exists-p file) return (find-file file))
-          (message "No file found for any rotation."))
+                when (file-exists-p file) return (find-file file)))
+      (message "No rotation defined for current file"))))
+
+(defun dud-c-rotate-rev ()
+  "Rotates buffer among file.hpp <-> file.cpp <-> file_test.cpp"
+  (interactive)
+  (let* ((file-path (buffer-file-name))
+        (rotated-files (dud-c-rotated-files file-path)))
+    (if rotated-files
+        (progn
+          (loop for file in (reverse rotated-files)
+                when (file-exists-p file) return (find-file file)))
       (message "No rotation defined for current file"))))
 
 (require 'google-c-style)
@@ -73,7 +83,7 @@
 ;; Setup clang-format
 ;;
 (load "/Users/satyam/Projects/dud/lib/clang-format.el")
-;; (add-hook 'before-save-hook 'clang-format-buffer nil 'local)
+(add-to-list 'auto-mode-alist '("\\.ipp\\'" . c++-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'dud-cpp-mode)

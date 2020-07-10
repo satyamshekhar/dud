@@ -34,23 +34,22 @@
 ; (global-undo-tree-mode -1)
 
 (require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
 (setq ido-use-faces nil)
 (setq ido-enable-flex-matching t)
 (setq ido-enable-tramp-completion nil)
 (setq ido-create-new-buffer 'always)
 (setq ido-ignore-directories '("/Users/satyam/backup.*", "~/backup/.*"))
+(setq ido-ignore-files '("/Users/satyam/Projects/netspring/compile_commands.json"))
 (ido-ubiquitous-mode t)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
 
 ;; Enable company-flx mode.
-(add-hook 'c++-mode-hook 'company-flx-mode)
+;; (add-hook 'c++-mode-hook 'company-flx-mode)
 
-(autoload 'ace-jump-mode "ace-jump-mode"
-  "Emacs quick move minor mode" t)
-(autoload 'ace-jump-mode-pop-mark "ace-jump-mode"
-  "Ace jump back:-)" t)
+(autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
+(autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
 (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
 
 (require 'ack-and-a-half)
@@ -79,13 +78,14 @@
   "Extensions ignored during grep.")
 (defun dud-prepend (prefix list)
   (mapcar (lambda (x) (concat prefix x)) list))
-(setq ack-and-a-half-arguments
-      (append (dud-prepend "--ignore-dir=" dud-grep-ignore-dirs)
-              (dud-prepend "--ignore-file=" dud-grep-ignore-files)))
+;; (setq ack-and-a-half-arguments
+;;       (append (dud-prepend "--ignore-dir=" dud-grep-ignore-dirs)
+;;               (dud-prepend "--ignore-file=" dud-grep-ignore-files)))
 (defalias 'ack 'ack-and-a-half)
 (defalias 'ack-same 'ack-and-a-half-same)
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+;; (rg-enable-default-bindings)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
@@ -114,5 +114,9 @@
 (require 'dud-cpp-mode)
 (require 'dud-protobuf-mode)
 (require 'dud-js-mode)
+(require 'dud-rust-mode)
 
 (provide 'dud-packages)
+
+;; Started Flink - InputFormat, TableSource
+;; Blaze - One bug

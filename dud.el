@@ -56,6 +56,7 @@
     ;; multiple-cursors  ;; Multiple cursors
     nginx-mode           ;; Mode to edit nginx config.
     ;; magit             ;; git support.
+    ;; rg                ;; Better grep / ack (INSTALL MANUALLY)
     smex                 ;; Better M-x
     space-chord          ;; Enable space binding for key-chord.
     vimish-fold          ;; Vim like folding.

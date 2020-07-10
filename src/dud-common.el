@@ -22,7 +22,10 @@
 ;; Create emacs server sockets in dud directory. This directory is mounted
 ;; in devdocker and allows clients in host to connect to emacs running
 ;; inside devdocker.
-(setq server-socket-dir (concat dud-root-dir "/sockets"))
+;; (setq server-host "0.0.0.0")
+;; (setq server-port "3333")
+;; (setq server-use-tcp t)
+;; (setq server-socket-dir (concat dud-root-dir "/sockets"))
 
 (setq debug-on-error t)
 ;; Already enabled by default now. Keeping it here for consistency.
@@ -81,11 +84,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun dud-configure-flycheck ()
-  ""
-  (set (make-local-variable 'flycheck-c/c++-clang-executable)
-         thoughtspot-clang-binary))
-
 (defun dud-use-tabs ()
   ""
   (setq-default tab-width 2)
@@ -93,12 +91,9 @@
 
 (defun dud-cc-mode-hook ()
 	""
-  (setq-default tab-width 2)
-  (setq-default indent-tabs-mode 1)
-	(defvaralias 'c-basic-offset 'tab-width)
-  ;; Configure flycheck.
-
-  )
+  (local-set-key (kbd "M-]") 'dud-c-rotate)
+  (local-set-key (kbd "M-[") 'dud-c-rotate-rev)
+	(add-hook 'before-save-hook 'clang-format-buffer nil t))
 
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
@@ -108,7 +103,7 @@
   ;; (setq whitespace-style '(face trailing newline empty))
   (whitespace-mode t)
 	;; (fci-mode t)
-  (linum-mode 1)
+  ;; (linum-mode 1)
   (subword-mode)
   (font-lock-add-keywords
    nil
@@ -121,12 +116,12 @@
 ;; Use tabs for C++, Java, Go and Json
 (add-hook 'protobuf-mode-hook 'dud-use-tabs)
 (add-hook 'sh-mode-hook 'dud-use-tabs)
-(add-hook 'c-mode-hook 'dud-cc-mode-hook)
+(add-hook 'c++-mode-hook 'dud-cc-mode-hook)
 (add-hook 'java-mode-hook 'dud-use-tabs)
 (add-hook 'js-mode-hook 'dud-use-tabs)
 (add-hook 'go-mode-hook 'dud-use-tabs)
 (add-hook 'yaml-mode-hook 'dud-prog-mode-hook)
-(add-hook 'before-save-hook #'gofmt-before-save)
+;; (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup markdown
