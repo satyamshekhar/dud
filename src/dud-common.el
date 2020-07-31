@@ -93,7 +93,19 @@
 	""
   (local-set-key (kbd "M-]") 'dud-c-rotate)
   (local-set-key (kbd "M-[") 'dud-c-rotate-rev)
-	(add-hook 'before-save-hook 'clang-format-buffer nil t))
+  (local-set-key (kbd "M-=") 'clang-format-buffer)
+	;; (add-hook 'before-save-hook 'clang-format-buffer nil t)
+	)
+
+(defun dud-proto-mode-hook ()
+	""
+  (local-set-key (kbd "M-=") 'clang-format-buffer)
+	)
+
+(defun dud-java-mode-hook()
+	""
+  (local-set-key (kbd "M-=") 'clang-format-buffer)
+	)
 
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
@@ -112,15 +124,14 @@
 (add-hook 'prog-mode-hook 'dud-prog-mode-hook)
 (add-hook 'markdown-mode-hook 'dud-prog-mode-hook)
 (add-hook 'protobuf-mode-hook 'dud-prog-mode-hook)
+(add-hook 'yaml-mode-hook 'dud-prog-mode-hook)
 
 ;; Use tabs for C++, Java, Go and Json
-(add-hook 'protobuf-mode-hook 'dud-use-tabs)
-(add-hook 'sh-mode-hook 'dud-use-tabs)
+(add-hook 'protobuf-mode-hook 'dud-proto-mode-hook)
 (add-hook 'c++-mode-hook 'dud-cc-mode-hook)
-(add-hook 'java-mode-hook 'dud-use-tabs)
+(add-hook 'java-mode-hook 'dud-java-mode-hook)
 (add-hook 'js-mode-hook 'dud-use-tabs)
 (add-hook 'go-mode-hook 'dud-use-tabs)
-(add-hook 'yaml-mode-hook 'dud-prog-mode-hook)
 ;; (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

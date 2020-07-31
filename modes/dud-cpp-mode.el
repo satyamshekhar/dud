@@ -30,11 +30,13 @@
 
 ;; file-name suffix is compared with first elements from the list
 ;; in the order specified here.
-(defvar dud-c-rotation-map '((".hpp" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
-                             (".h" . (".cpp" ".cc" "_test.cc" "_test.cpp"))
-                             ("_test.cpp" . (".hpp" ".h" ".cc" ".cpp"))
-                             (".cpp" . ("_test.cpp" ".hpp" ".h"))
-                             (".cc" . ("_test.cc" ".hpp" ".h"))))
+(defvar dud-c-rotation-map '((".hpp" . (".cpp" ".ipp" ".cc" "_test.cc" "_test.cpp"))
+			     (".h" . (".cpp" ".ipp" ".cc" "_test.cc" "_test.cpp"))
+			     ("_test.cpp" . (".hpp" ".h" ".cc" ".cpp" ".ipp"))
+			     ("_test.cc" . (".hpp" ".h" ".cc" ".cpp" ".ipp"))
+			     (".cpp" . (".ipp" "_test.cpp" ".hpp" ".h"))
+			     (".cc" . (".ipp" "_test.cc" "_test.cpp" ".hpp" ".h"))
+			     (".ipp" . ("_test.cpp" "_test.cc" ".hpp" ".h" ".cpp" ".cc"))))
 
 (defun ends-with (string suffix)
   "Returns t if @string ends with @suffix, nil otherwise."
