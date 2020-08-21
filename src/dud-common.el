@@ -85,40 +85,31 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun dud-use-tabs ()
-  ""
   (setq-default tab-width 2)
   (setq-default indent-tabs-mode 1))
 
 (defun dud-cc-mode-hook ()
-	""
   (local-set-key (kbd "M-]") 'dud-c-rotate)
   (local-set-key (kbd "M-[") 'dud-c-rotate-rev)
-  (local-set-key (kbd "M-=") 'clang-format-buffer)
-	;; (add-hook 'before-save-hook 'clang-format-buffer nil t)
-	)
+  (local-set-key (kbd "M-=") 'clang-format-buffer))
 
 (defun dud-proto-mode-hook ()
-	""
-  (local-set-key (kbd "M-=") 'clang-format-buffer)
-	)
+  (local-set-key (kbd "M-=") 'clang-format-buffer))
 
 (defun dud-java-mode-hook()
-	""
-  (local-set-key (kbd "M-=") 'clang-format-buffer)
-	)
+  (local-set-key (kbd "M-=") 'clang-format-buffer))
 
 (defun dud-sh-mode-hook()
-	(setq sh-basic-offset 2)
-	(setq sh-indentation 2)
-	)
+  (setq sh-basic-offset 2)
+  (setq sh-indentation 2))
 
 (defun dud-js-mode-hook()
   (dud-use-tabs)
-	(setq js-indent-level 2)
-	)
+  (setq js-indent-level 2))
 
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
+  (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
   (setq whitespace-line-column 75)
   (setq whitespace-style '(face trailing lines-tail newline empty))

@@ -29,6 +29,9 @@
   '(ace-jump-mode        ;; Try with C-c SPC
     ace-window
     ack-and-a-half       ;; Better grep
+    ;; impatient-mode
+    ;; multiple-cursors  ;; Multiple cursors
+    ;; rust-mode
     ;; bazel-mode        ;; Bazel mode for Bazel build files.
     ;; auto-complete     ;; auto-completions
     color-theme          ;; required for supported themes.
@@ -49,11 +52,9 @@
     ;; goto-last-change  ;; jump to last change.
     ;; helm              ;; navigator.
     ido-ubiquitous       ;; use ido everywhere.
-    ;; impatient-mode
     js2-mode             ;; better js mode.
     key-chord            ;; More option for key-bindings.
     kill-ring-rotate     ;; browse and rotate kill rings.
-    ;; multiple-cursors  ;; Multiple cursors
     nginx-mode           ;; Mode to edit nginx config.
     ;; magit             ;; git support.
     ;; rg                ;; Better grep / ack (INSTALL MANUALLY)

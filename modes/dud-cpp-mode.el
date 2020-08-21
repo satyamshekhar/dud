@@ -84,7 +84,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup clang-format
 ;;
-(load "/Users/satyam/Projects/dud/lib/clang-format.el")
+(load "~/Projects/dud/lib/clang-format.el")
 (add-to-list 'auto-mode-alist '("\\.ipp\\'" . c++-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
