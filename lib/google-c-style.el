@@ -69,8 +69,7 @@ Suitable for inclusion in `c-offsets-alist'."
   `((c-recognize-knr-p . nil)
     (c-enable-xemacs-performance-kludge-p . t) ; speed up indentation in XEmacs
     (c-basic-offset . 2)
-		;; NOTE(satyam): Set 1 to nil to disable tabs.
-    (indent-tabs-mode . t)
+    (indent-tabs-mode . nil)
     (c-comment-only-line-offset . 0)
     (c-hanging-braces-alist . ((defun-open after)
                                (defun-close before after)

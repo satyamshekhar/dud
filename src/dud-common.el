@@ -107,6 +107,16 @@
   (local-set-key (kbd "M-=") 'clang-format-buffer)
 	)
 
+(defun dud-sh-mode-hook()
+	(setq sh-basic-offset 2)
+	(setq sh-indentation 2)
+	)
+
+(defun dud-js-mode-hook()
+  (dud-use-tabs)
+	(setq js-indent-level 2)
+	)
+
 (defun dud-prog-mode-hook ()
   "Customizations to prog-mode"
   (setq-default tab-width 2)
@@ -130,7 +140,8 @@
 (add-hook 'protobuf-mode-hook 'dud-proto-mode-hook)
 (add-hook 'c++-mode-hook 'dud-cc-mode-hook)
 (add-hook 'java-mode-hook 'dud-java-mode-hook)
-(add-hook 'js-mode-hook 'dud-use-tabs)
+(add-hook 'sh-mode-hook 'dud-sh-mode-hook)
+(add-hook 'js-mode-hook 'dud-js-mode-hook)
 (add-hook 'go-mode-hook 'dud-use-tabs)
 ;; (add-hook 'before-save-hook #'gofmt-before-save)
 
